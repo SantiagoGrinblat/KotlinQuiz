@@ -23,8 +23,9 @@ fun QuizScreen() {
   var currentQuestionIndex by remember { mutableStateOf(0) }
   var isCorrect by remember { mutableStateOf<Boolean?>(null) }
   
-  val totalQuestions = sampleQuestions.size
-  val currentQuestions = sampleQuestions[currentQuestionIndex]
+  val questionsRandom = remember { sampleQuestions.shuffled() }
+  val totalQuestions = questionsRandom.size
+  val currentQuestions = questionsRandom[currentQuestionIndex]
   
   Column(modifier = Modifier
     .fillMaxSize()
@@ -46,7 +47,7 @@ fun QuizScreen() {
         isCorrect = selected == currentQuestions.correctAnswer
       },
       onNextQuestion = {
-        if (currentQuestionIndex < sampleQuestions.size - 1) {
+        if (currentQuestionIndex < questionsRandom.size - 1) {
           currentQuestionIndex++
           isCorrect = null
         }

@@ -18,8 +18,8 @@ val sampleQuestions = listOf(
   Question(
     id = 3,
     text = "¿Cual es la forma correcta de recordar un estado a travez de la recomposicion?",
-    options = listOf("remember", "rememberUpdatedState", "rememberSaveable"),
-    correctAnswer = "rememberSaveable",
+    options = listOf("remember{}", "rememberUpdatedState{}", "rememberSaveable{}"),
+    correctAnswer = "rememberSaveable{}",
     explanation = "rememberSaveable es la forma que tiene jetpack compose, para recordar el estado actual de un composable y evitar la recomposicion al girar la pantalla del dispositivo"
   ),
   Question(
@@ -73,5 +73,47 @@ val sampleQuestions = listOf(
     options = listOf("Text('Hola', Color.Red)","Text('Hola', color = Color.Red)","Text('Hola').color(Color.Red)", "Text(\"Hola\", textColor = Color.Red)"),
     correctAnswer = "Text('Hola', color = Color.Red)",
     explanation = "El parámetro color define el color del texto."
+  ),
+  Question(
+    id = 11,
+    text = "¿Cuál es la diferencia entre 'val' y 'var' en Kotlin?",
+    options = listOf("No hay diferencia", "val es inmutable, var es mutable", "var es inmutable, val es mutable"),
+    correctAnswer = "val es inmutable, var es mutable",
+    explanation = "'val' declara una propiedad de solo lectura (inmutable), mientras que 'var' permite modificar el valor."
+  ),
+  Question(
+    id = 12,
+    text = "¿Qué anotación se usa para crear un Composable en Jetpack Compose?",
+    options = listOf("@Component", "@Composable", "@Compose"),
+    correctAnswer = "@Composable",
+    explanation = "La anotación @Composable marca una función como componente de UI en Jetpack Compose."
+  ),
+  Question(
+    id = 13,
+    text = "¿Cuál es la forma correcta de manejar nulos en Kotlin?",
+    options = listOf("Usando try-catch", "Usando el operador ( ? )", "Kotlin no maneja nulos"),
+    correctAnswer = "Usando el operador ( ? )",
+    explanation = "Kotlin usa el sistema de tipos nullable con el operador ( ? ) para manejar valores que pueden ser nulos de forma segura."
+  ),
+  Question(
+    id = 14,
+    text = "¿Qué manera se usa para heredar de una clase en Kotlin?",
+    options = listOf("extends", "inherits", "( : )"),
+    correctAnswer = "( : )",
+    explanation = "En Kotlin se usa '( : )' después del nombre de la clase para indicar herencia o implementación de interfaces."
+  ),
+  Question(
+    id = 15,
+    text = "¿Cuál es la función principal de remember() en Compose?",
+    options = listOf("Recordar el estado anterior", "Mantener valores entre recomposiciones", "Guardar datos permanentemente"),
+    correctAnswer = "Mantener valores entre recomposiciones",
+    explanation = "remember() almacena valores en la composición para que persistan durante las recomposiciones."
+  ),
+  Question(
+    id = 16,
+    text = "¿Qué es una lambda en Kotlin?",
+    options = listOf("Una clase especial", "Una función anónima", "Un tipo de variable"),
+    correctAnswer = "Una función anónima",
+    explanation = "Las lambdas son funciones anónimas que se pueden pasar como parámetros o asignar a variables."
   ),
 )

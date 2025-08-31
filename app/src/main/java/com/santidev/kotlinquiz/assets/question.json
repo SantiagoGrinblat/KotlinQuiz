@@ -72,3 +72,6 @@
     }
   ]
 }
+/*
+Pronto agregar mas preguntas y hacer que el llamado a las preguntas sea solamente con JSON, y no con la clase simplemente
+*/
