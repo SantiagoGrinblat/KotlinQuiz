@@ -1,0 +1,74 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "text": "Cuál es la palabra clave para declarar una clase de datos?",
+      "options": ["class", "data class", "object"],
+      "correctAnswer": "data class",
+      "explanation": "Las clases de datos se utilizan para representar datos inmutables."
+    },
+    {
+      "id": 2,
+      "text": "¿Cómo se declara una función en Kotlin?",
+      "options": ["def", "fun", "func"],
+      "correctAnswer": "fun",
+      "explanation": "En Kotlin, se utiliza la palabra clave 'fun' para declarar funciones."
+    },
+    {
+      "id": 3,
+      "text": "¿Cuál es la diferencia entre 'val' y 'var' en Kotlin?",
+      "options": ["No hay diferencia", "val es inmutable, var es mutable", "var es inmutable, val es mutable"],
+      "correctAnswer": "val es inmutable, var es mutable",
+      "explanation": "'val' declara una propiedad de solo lectura (inmutable), mientras que 'var' permite modificar el valor."
+    },
+    {
+      "id": 4,
+      "text": "¿Qué anotación se usa para crear un Composable en Jetpack Compose?",
+      "options": ["@Component", "@Composable", "@Compose"],
+      "correctAnswer": "@Composable",
+      "explanation": "La anotación @Composable marca una función como componente de UI en Jetpack Compose."
+    },
+    {
+      "id": 5,
+      "text": "¿Cuál es la forma correcta de manejar nulos en Kotlin?",
+      "options": ["Usando try-catch", "Usando el operador ?", "Kotlin no maneja nulos"],
+      "correctAnswer": "Usando el operador ?",
+      "explanation": "Kotlin usa el sistema de tipos nullable con el operador ? para manejar valores que pueden ser nulos de forma segura."
+    },
+    {
+      "id": 6,
+      "text": "¿Qué palabra clave se usa para heredar de una clase en Kotlin?",
+      "options": ["extends", "inherits", ":"],
+      "correctAnswer": ":",
+      "explanation": "En Kotlin se usa ':' después del nombre de la clase para indicar herencia o implementación de interfaces."
+    },
+    {
+      "id": 7,
+      "text": "¿Cuál es la función principal de remember() en Compose?",
+      "options": ["Recordar el estado anterior", "Mantener valores entre recomposiciones", "Guardar datos permanentemente"],
+      "correctAnswer": "Mantener valores entre recomposiciones",
+      "explanation": "remember() almacena valores en la composición para que persistan durante las recomposiciones."
+    },
+    {
+      "id": 8,
+      "text": "¿Qué es una lambda en Kotlin?",
+      "options": ["Una clase especial", "Una función anónima", "Un tipo de variable"],
+      "correctAnswer": "Una función anónima",
+      "explanation": "Las lambdas son funciones anónimas que se pueden pasar como parámetros o asignar a variables."
+    },
+    {
+      "id": 9,
+      "text": "¿Cuál es la sintaxis correcta para una función de extensión?",
+      "options": ["fun String.extension()", "fun extension(String)", "extension fun String()"],
+      "correctAnswer": "fun String.extension()",
+      "explanation": "Las funciones de extensión se declaran con 'fun TipoReceptor.nombreFuncion()' para extender funcionalidad de tipos existentes."
+    },
+    {
+      "id": 10,
+      "text": "¿Qué hace la palabra clave 'when' en Kotlin?",
+      "options": ["Declara variables", "Funciona como switch/case", "Crea bucles"],
+      "correctAnswer": "Funciona como switch/case",
+      "explanation": "'when' es la expresión de Kotlin equivalente a switch/case, pero más poderosa y expresiva."
+    }
+  ]
+}
