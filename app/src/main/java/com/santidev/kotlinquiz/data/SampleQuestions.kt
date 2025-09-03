@@ -6,28 +6,32 @@ val sampleQuestions = listOf(
     text = "Cuál es la palabra clave para declarar una clase de datos?",
     options = listOf("class", "data class", "object"),
     correctAnswer = "data class",
-    explanation = "Las clases de datos se utilizan para representar datos inmutables."
+    explanation = "Las clases de datos se utilizan para representar datos inmutables.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 2,
     text = "¿Cómo se declara una función en Kotlin?",
     options = listOf("def", "fun", "func"),
     correctAnswer = "fun",
-    explanation = "En Kotlin, se utiliza la palabra clave 'fun' para declarar funciones."
+    explanation = "En Kotlin, se utiliza la palabra clave 'fun' para declarar funciones.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 3,
     text = "¿Cual es la forma correcta de recordar un estado a travez de la recomposicion?",
     options = listOf("remember{}", "rememberUpdatedState{}", "rememberSaveable{}"),
     correctAnswer = "rememberSaveable{}",
-    explanation = "rememberSaveable es la forma que tiene jetpack compose, para recordar el estado actual de un composable y evitar la recomposicion al girar la pantalla del dispositivo"
+    explanation = "rememberSaveable es la forma que tiene jetpack compose, para recordar el estado actual de un composable y evitar la recomposicion al girar la pantalla del dispositivo",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 4,
     text = "¿Qué palabra clave se usa para crear una corrutina en Kotlin?",
     options = listOf("launch", "async", "suspend", "runBlocking"),
     correctAnswer = "launch",
-    explanation = "launch inicia una nueva corrutina sin bloquear el hilo actual."
+    explanation = "launch inicia una nueva corrutina sin bloquear el hilo actual.",
+    category = QuestionCategory.ADVANCED.displayName
   ),
   Question(
     id = 5,
@@ -37,83 +41,95 @@ val sampleQuestions = listOf(
       "Las data class no aceptan constructores",
       "No hay diferencia"),
     correctAnswer = "Las data class generan equals, hashCode y toString automáticamente",
-    explanation = "Data class genera automáticamente funciones útiles como equals y toString."
+    explanation = "Data class genera automáticamente funciones útiles como equals y toString.",
+    category = QuestionCategory.POO.displayName
   ),
   Question(
     id = 6,
     text = "Cuál es la forma correcta de ver si un numero es Par O Impar?",
     options = listOf("if (numero / 2 == 0)","if (numero * 2 == 0)","if (numero % 2 == 0)", "if (numero / 2 == 2)"),
     correctAnswer = "if (numero % 2 == 0)",
-    explanation = "El operador ( % ) en Kotlin se llama módulo y comprueba si es divisible por 2, si lo es devulve 'Par', si no lo es devuelve 'Impar' "
+    explanation = "El operador ( % ) en Kotlin se llama módulo y comprueba si es divisible por 2, si lo es devulve 'Par', si no lo es devuelve 'Impar' ",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 7,
-    text = "Qué hace el operador !! en Kotlin",
+    text = "Qué hace el operador ( !! ) en Kotlin",
     options = listOf("Convierte null en 0","Lanza una excepción si la variable es null","Ignora el valor null", "Cambia el tipo de la variable a String"),
     correctAnswer = "Lanza una excepción si la variable es null",
-    explanation = "El operador ( !! ) fuerza que una variable nullable no sea null; si lo es, lanza NullPointerException."
+    explanation = "El operador ( !! ) fuerza que una variable nullable no sea null; si lo es, lanza NullPointerException.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 8,
     text = "Cuál es la forma correcta de cambiar el texto de un Text según un estado mutable",
     options = listOf("Text { miEstado }","Text(miEstado.setValue())","Text(miEstado.value)", "Text(text = miEstado)"),
     correctAnswer = "Text(text = miEstado)",
-    explanation = "Al pasar la variable miEstado al parámetro text, Compose actualiza el texto automáticamente cuando cambia."
+    explanation = "Al pasar la variable miEstado al parámetro text, Compose actualiza el texto automáticamente cuando cambia.",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 9,
     text = "¿Cuál composable se usa para superponer elementos?",
     options = listOf("Box { ... }","Column { ... }","Stack { ... }", "Row { ... }"),
     correctAnswer = "Box { ... }",
-    explanation = "Box permite apilar elementos unos sobre otros."
+    explanation = "Box permite apilar elementos unos sobre otros.",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 10,
     text = "Cuál es la forma correcta de cambiar el color de un Text",
     options = listOf("Text('Hola', Color.Red)","Text('Hola', color = Color.Red)","Text('Hola').color(Color.Red)", "Text(\"Hola\", textColor = Color.Red)"),
     correctAnswer = "Text('Hola', color = Color.Red)",
-    explanation = "El parámetro color define el color del texto."
+    explanation = "El parámetro color define el color del texto.",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 11,
     text = "¿Cuál es la diferencia entre 'val' y 'var' en Kotlin?",
     options = listOf("No hay diferencia", "val es inmutable, var es mutable", "var es inmutable, val es mutable"),
     correctAnswer = "val es inmutable, var es mutable",
-    explanation = "'val' declara una propiedad de solo lectura (inmutable), mientras que 'var' permite modificar el valor."
+    explanation = "'val' declara una propiedad de solo lectura (inmutable), mientras que 'var' permite modificar el valor.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 12,
     text = "¿Qué anotación se usa para crear un Composable en Jetpack Compose?",
     options = listOf("@Component", "@Composable", "@Compose"),
     correctAnswer = "@Composable",
-    explanation = "La anotación @Composable marca una función como componente de UI en Jetpack Compose."
+    explanation = "La anotación @Composable marca una función como componente de UI en Jetpack Compose.",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 13,
     text = "¿Cuál es la forma correcta de manejar nulos en Kotlin?",
     options = listOf("Usando try-catch", "Usando el operador ( ? )", "Kotlin no maneja nulos"),
     correctAnswer = "Usando el operador ( ? )",
-    explanation = "Kotlin usa el sistema de tipos nullable con el operador ( ? ) para manejar valores que pueden ser nulos de forma segura."
+    explanation = "Kotlin usa el sistema de tipos nullable con el operador ( ? ) para manejar valores que pueden ser nulos de forma segura.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 14,
     text = "¿Qué manera se usa para heredar de una clase en Kotlin?",
     options = listOf("extends", "inherits", "( : )"),
     correctAnswer = "( : )",
-    explanation = "En Kotlin se usa '( : )' después del nombre de la clase para indicar herencia o implementación de interfaces."
+    explanation = "En Kotlin se usa '( : )' después del nombre de la clase para indicar herencia o implementación de interfaces.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 15,
     text = "¿Cuál es la función principal de remember() en Compose?",
     options = listOf("Recordar el estado anterior", "Mantener valores entre recomposiciones", "Guardar datos permanentemente"),
     correctAnswer = "Mantener valores entre recomposiciones",
-    explanation = "remember() almacena valores en la composición para que persistan durante las recomposiciones."
+    explanation = "remember() almacena valores en la composición para que persistan durante las recomposiciones.",
+    category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 16,
     text = "¿Qué es una lambda en Kotlin?",
     options = listOf("Una clase especial", "Una función anónima", "Un tipo de variable"),
     correctAnswer = "Una función anónima",
-    explanation = "Las lambdas son funciones anónimas que se pueden pasar como parámetros o asignar a variables."
+    explanation = "Las lambdas son funciones anónimas que se pueden pasar como parámetros o asignar a variables.",
+    category = QuestionCategory.ADVANCED.displayName
   ),
 )

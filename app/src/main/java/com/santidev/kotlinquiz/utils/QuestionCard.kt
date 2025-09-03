@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -56,6 +58,16 @@ fun QuestionCard(
       fontSize = 21.sp,
       fontWeight = FontWeight.Bold,
       color = Color.White,
+      textAlign = TextAlign.Center
+    )
+    
+    Spacer(modifier = Modifier.height(8.dp))
+    
+    Text(
+      "Categoria: ${question.category}",
+      style = MaterialTheme.typography.titleMedium,
+      fontSize = 16.sp,
+      color = Color.Gray,
       textAlign = TextAlign.Center
     )
     
@@ -115,7 +127,6 @@ fun QuestionCard(
               shape = RoundedCornerShape(16.dp)
             )
             .border(2.dp, Color(0xFF362348), RoundedCornerShape(16.dp))
-            
             .padding(8.dp),
           contentAlignment = Alignment.Center
         ) {
@@ -130,7 +141,17 @@ fun QuestionCard(
         
         Button(
           onClick = { onNextQuestion() },
+          colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+          ),
           modifier = Modifier
+            .border(
+              width = 2.dp,
+              brush = Brush.horizontalGradient(
+                colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
+              ),
+              shape = RoundedCornerShape(16.dp)
+            )
             .background(
               brush = Brush.linearGradient(
                 colors = listOf(
@@ -139,13 +160,6 @@ fun QuestionCard(
                 ),
                 start = Offset(0f, 0f),
                 end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
-              ),
-              shape = RoundedCornerShape(16.dp)
-            )
-            .border(
-              width = 2.dp,
-              brush = Brush.horizontalGradient(
-                colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
               ),
               shape = RoundedCornerShape(16.dp)
             )

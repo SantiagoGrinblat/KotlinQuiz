@@ -6,5 +6,12 @@ data class Question(
   val options: List<String>,
   val correctAnswer: String,
   val explanation : String = "",
-  /*val category: String = "General"*/
+  val category: String,
 )
+
+enum class QuestionCategory(val displayName: String) {
+  FUNDAMENTALS("Fundamentos Kotlin"),
+  COMPOSE("Jetpack compose"),
+  ADVANCED("Conceptos Avanzados"),
+  POO("Programación Orientada a Objetos")
+}
