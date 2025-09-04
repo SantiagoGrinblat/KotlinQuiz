@@ -27,10 +27,11 @@ fun QuizScreen() {
   val totalQuestions = questionsRandom.size
   val currentQuestions = questionsRandom[currentQuestionIndex]
   
-  Column(modifier = Modifier
-    .fillMaxSize()
-    .background(Color(0xFF1A1122))
-    .padding(16.dp),
+  Column(
+    modifier = Modifier
+      .fillMaxSize()
+      .background(Color(0xFF1A1122))
+      .padding(16.dp),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
   ) {
@@ -53,5 +54,6 @@ fun QuizScreen() {
         }
       }
     )
+    /*PartialBottomSheet()*/
   }
 }
