@@ -132,4 +132,124 @@ val sampleQuestions = listOf(
     explanation = "Las lambdas son funciones anónimas que se pueden pasar como parámetros o asignar a variables.",
     category = QuestionCategory.ADVANCED.displayName
   ),
+  Question(
+    id = 17,
+    text = "¿Cuál es la palabra clave para crear una variable que NO puede ser nula?",
+    options = listOf("var", "val", "lateinit"),
+    correctAnswer = "lateinit",
+    explanation = "lateinit permite declarar propiedades no nulas que se inicializan después, pero garantiza que no serán null cuando se accedan.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
+  ),
+  Question(
+    id = 18,
+    text = "¿Qué operador se usa para el safe call en Kotlin?",
+    options = listOf("( !! )", "( ?. )", "( ?.let )"),
+    correctAnswer = "( ?. )",
+    explanation = "El operador ?. permite llamar métodos o acceder a propiedades solo si el objeto no es null, evitando NullPointerException.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
+  ),
+  Question(
+    id = 19,
+    text = "¿Cuál es la diferencia entre '==' y '===' en Kotlin??",
+    options = listOf("No hay diferencia", "== compara valor, === compara referencia", "== compara referencia, === compara valor"),
+    correctAnswer = "== compara valor, === compara referencia",
+    explanation = "== compara el contenido (llama a equals()), mientras que === compara si son el mismo objeto en memoria.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
+  ),
+  Question(
+    id = 20,
+    text = "¿Cuál es el operador Elvis en Kotlin?",
+    options = listOf("( ?: )", "( ?? )", "( ?! )"),
+    correctAnswer = "( ?: )",
+    explanation = "se utiliza para manejar valores nulos de manera concisa y segura, proporcionando un valor predeterminado cuando una expresión es nula. Si la expresión a la izquierda del operador no es nula, se devuelve su valor; si es nula, se devuelve el valor a la derecha del operador.",
+    category = QuestionCategory.FUNDAMENTALS.displayName
+  ),
+  Question(
+    id = 21,
+    text = "¿Cuál es la diferencia entre 'LazyColumn' y 'Column'?",
+    options = listOf("LazyColumn solo soporta listas pequeñas", "Column siempre recicla vistas, LazyColumn no", "LazyColumn solo renderiza elementos visibles"),
+    correctAnswer = "LazyColumn solo renderiza elementos visibles",
+    explanation = "LazyColumn es eficiente porque solo compone los ítems visibles y algunos adicionales para el scroll.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 22,
+    text = "¿Cuál es el propósito de 'SideEffect' en Compose?",
+    options = listOf("Ejecutar código cada vez que ocurre una recomposición", "Evitar fugas de memoria", "Persistir estado entre recomposiciones"),
+    correctAnswer = "Ejecutar código cada vez que ocurre una recomposición",
+    explanation = "SideEffect se usa para ejecutar acciones que deben ocurrir en cada recomposición.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 23,
+    text = "¿Qué hace 'AnimatedVisibility'?",
+    options = listOf("Cambia colores de fondo", "Muestra u oculta un composable con animación", "Redibuja automáticamente al cambiar de estado"),
+    correctAnswer = "Muestra u oculta un composable con animación",
+    explanation = "AnimatedVisibility es ideal para transiciones suaves al mostrar/ocultar elementos.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 24,
+    text = "¿Cuál es el rol del 'Scaffold' en Compose?",
+    options = listOf("Proporcionar una estructura de pantalla con barra superior, inferior, FAB, etc.", "Crear layouts flexibles", "Mostrar datos en tablas"),
+    correctAnswer = "Proporcionar una estructura de pantalla con barra superior, inferior, FAB, etc.",
+    explanation = "Scaffold organiza pantallas completas con componentes de Material Design de manera coherente.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 25,
+    text = "¿Qué composable se usa para detectar gestos como arrastrar o pulsar largo?",
+    options = listOf("GestureDetector", "Modifier.pointerInput", "Modifier.clickable"),
+    correctAnswer = "Modifier.pointerInput",
+    explanation = "pointerInput permite manejar gestos personalizados como drag, long press o multitouch.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 26,
+    text = "¿Qué hace 'Crossfade' en Compose?",
+    options = listOf("Aplica transición de opacidad entre dos composables", "Duplica un composable", "Cambia el color de fondo gradualmente"),
+    correctAnswer = "Aplica transición de opacidad entre dos composables",
+    explanation = "Crossfade permite animar un cambio entre dos composables con efecto de desvanecimiento.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 27,
+    text = "¿Qué función usas para observar un Flow en Compose?",
+    options = listOf("observeAsState()", "collectAsState()", "rememberFlow()"),
+    correctAnswer = "collectAsState()",
+    explanation = "collectAsState convierte un Flow en un State observable por Compose.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 28,
+    text = "¿Qué diferencia hay entre 'LocalContext.current' y 'LocalLifecycleOwner.current'?",
+    options = listOf("LocalContext da acceso al contexto de Android, LocalLifecycleOwner al ciclo de vida", "Son equivalentes", "Ambos devuelven un Context"),
+    correctAnswer = "LocalContext da acceso al contexto de Android, LocalLifecycleOwner al ciclo de vida",
+    explanation = "LocalContext.current da el contexto Android, LocalLifecycleOwner.current permite acceder al ciclo de vida actual.",
+    category = QuestionCategory.COMPOSE.displayName
+  ),
+  Question(
+    id = 29,
+    text = "¿Cuál es la diferencia entre 'interface' y 'abstract class'?",
+    options = listOf("Son equivalentes", "Una interface no guarda estado, una abstract class sí puede", "Solo las interfaces pueden tener constructores"),
+    correctAnswer = "Una interface no guarda estado, una abstract class sí puede",
+    explanation = "Las interfaces definen contratos sin estado, mientras que las abstract class pueden contener propiedades con estado.",
+    category = QuestionCategory.POO.displayName
+  ),
+  Question(
+    id = 30,
+    text = "¿Qué es el polimorfismo en Kotlin?",
+    options = listOf("La posibilidad de usar genéricos", "El paso por referencia", "La capacidad de una función/clase de tener múltiples formas",),
+    correctAnswer = "La capacidad de una función/clase de tener múltiples formas",
+    explanation = "El polimorfismo permite que una clase hija sobrescriba comportamientos de la clase padre o comparta una misma interfaz.",
+    category = QuestionCategory.POO.displayName
+  ),
+  Question(
+    id = 31,
+    text = "¿Qué diferencia hay entre 'companion object' y 'object' normal?",
+    options = listOf("Son equivalentes", "companion object está ligado a una clase, object normal es un singleton global", "companion object no puede contener métodos"),
+    correctAnswer = "companion object está ligado a una clase, object normal es un singleton global",
+    explanation = "El companion object sirve para miembros estáticos asociados a una clase.",
+    category = QuestionCategory.POO.displayName
+  ),
 )

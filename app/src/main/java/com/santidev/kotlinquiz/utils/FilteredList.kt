@@ -1,0 +1,82 @@
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.santidev.kotlinquiz.R
+import com.santidev.kotlinquiz.utils.GridItemWithDrawable
+
+@Composable
+fun FilteredList(){
+  val itemsImage = listOf(
+    GridItemWithDrawable("kotlin", R.drawable.kotlinlogo),
+    GridItemWithDrawable("jetpack compose", R.drawable.jclogob),
+    GridItemWithDrawable("Preguntas avanzadas", R.drawable.advancelogob),
+    GridItemWithDrawable("poo", R.drawable.poologob)
+  )
+  
+  LazyVerticalGrid(
+    columns = GridCells.Fixed(2), // 2 columnas para 4 elementos
+    modifier = Modifier
+      .fillMaxWidth()
+      .height(330.dp),
+    contentPadding = PaddingValues(
+      start = 8.dp,
+      top = 8.dp,
+      end = 8.dp,
+      bottom = 8.dp
+    ),
+    verticalArrangement = Arrangement.spacedBy(8.dp),
+    horizontalArrangement = Arrangement.spacedBy(8.dp),
+    content = {
+      items(itemsImage.size) { index ->
+        Card(
+          modifier = Modifier
+            .fillMaxWidth()
+            .aspectRatio(1f)
+            .clickable {
+              /*Se genera la accion de filtracion*/
+            },
+          colors = CardDefaults.cardColors(
+            containerColor = Color(0xFF3D2A52).copy(alpha = 0.8f)
+          ),
+          elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        ) {
+          Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+          ) {
+            Image(
+              painter = painterResource(id = itemsImage[index].drawableResId),
+              contentDescription = itemsImage[index].name,
+              modifier = Modifier.fillMaxSize(),
+              contentScale = ContentScale.Fit
+            )
+          }
+        }
+      }
+    }
+  )
+}
