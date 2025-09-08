@@ -18,14 +18,7 @@ class MainActivity : ComponentActivity() {
     enableEdgeToEdge()
     setContent {
       KotlinQuizTheme {
-        DetailedMenu { paddingValues ->
-          Box(modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues)
-          ) {
-            QuizScreen()
-          }
-        }
+        QuizScreen()
       }
     }
   }

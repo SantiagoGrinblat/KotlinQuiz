@@ -3,10 +3,14 @@ package com.santidev.kotlinquiz.ui.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -14,46 +18,73 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.santidev.kotlinquiz.data.sampleQuestions
+import com.santidev.kotlinquiz.utils.DetailedMenu
 import com.santidev.kotlinquiz.utils.QuestionCard
 
 @Composable
 fun QuizScreen() {
   var currentQuestionIndex by remember { mutableStateOf(0) }
   var isCorrect by remember { mutableStateOf<Boolean?>(null) }
+  var selectedCategory by remember { mutableStateOf<String?>(null) }
   
-  val questionsRandom = remember { sampleQuestions.shuffled() }
+  val questionsRandom = remember(selectedCategory) {
+    if (selectedCategory == null) {
+      sampleQuestions.shuffled()
+    } else {
+      sampleQuestions.filter { it.category == selectedCategory }.shuffled()
+    }
+  }
+  
+  LaunchedEffect(selectedCategory) {
+    currentQuestionIndex = 0
+    isCorrect = null
+  }
+  
   val totalQuestions = questionsRandom.size
-  val currentQuestions = questionsRandom[currentQuestionIndex]
   
-  Column(
-    modifier = Modifier
-      .fillMaxSize()
-      .background(Color(0xFF1A1122))
-      .padding(16.dp),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally
-  ) {
-    
-    Text(text = "Pregunta ${currentQuestionIndex + 1} de ${totalQuestions}", color = Color.Gray)
-    
-    QuestionCard(
-      question = currentQuestions,
-      isCorrect = isCorrect,
-      //Antes estaba isCorrect = isCorrect == true, pero no funcionaba el texto que cambia.
-      //tambien tuve que modificar el boolean de DropTargetArea y agregar el signo de interrogacion.
-      //ademas de modificar el if del archivo QuestionCard : if (isCorrect != null) <- para que me tome la respuesat inicial siempre como null.
-      onAnswerDropped = { selected ->
-        isCorrect = selected == currentQuestions.correctAnswer
-      },
-      onNextQuestion = {
-        if (currentQuestionIndex < questionsRandom.size - 1) {
-          currentQuestionIndex++
-          isCorrect = null
-        }
+  DetailedMenu(
+    selectedCategory = selectedCategory,
+    onCategorySelected = { category ->
+      selectedCategory = category
+    }
+  ) { paddingValues ->
+    if (questionsRandom.isNotEmpty()) {
+      val currentQuestions = questionsRandom[currentQuestionIndex]
+      Column(
+        modifier = Modifier
+          .fillMaxSize()
+          .background(Color(0xFF1A1122))
+          .padding(paddingValues)
+          .padding(16.dp),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+      ) {
+        
+        Text(text = "Pregunta ${currentQuestionIndex + 1} de ${totalQuestions}", color = Color.Gray)
+        
+        QuestionCard(
+          question = currentQuestions,
+          isCorrect = isCorrect,
+          //Antes estaba isCorrect = isCorrect == true, pero no funcionaba el texto que cambia.
+          //tambien tuve que modificar el boolean de DropTargetArea y agregar el signo de interrogacion.
+          //ademas de modificar el if del archivo QuestionCard : if (isCorrect != null) <- para que me tome la respuesat inicial siempre como null.
+          onAnswerDropped = { selected ->
+            isCorrect = selected == currentQuestions.correctAnswer
+          },
+          onNextQuestion = {
+            if (currentQuestionIndex < questionsRandom.size - 1) {
+              currentQuestionIndex++
+              isCorrect = null
+            } else {
+              currentQuestionIndex = 0
+              isCorrect = null
+            }
+          }
+        )
       }
-    )
-    /*PartialBottomSheet()*/
+    }
   }
 }

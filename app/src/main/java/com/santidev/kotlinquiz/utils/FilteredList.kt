@@ -26,15 +26,19 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.santidev.kotlinquiz.R
+import com.santidev.kotlinquiz.data.QuestionCategory
 import com.santidev.kotlinquiz.utils.GridItemWithDrawable
 
 @Composable
-fun FilteredList(){
+fun FilteredList(
+  onItemSelected: (String) -> Unit,
+  onCloseModal: () -> Unit
+  ){
   val itemsImage = listOf(
-    GridItemWithDrawable("kotlin", R.drawable.kotlinlogo),
-    GridItemWithDrawable("jetpack compose", R.drawable.jclogob),
-    GridItemWithDrawable("Preguntas avanzadas", R.drawable.advancelogob),
-    GridItemWithDrawable("poo", R.drawable.poologob)
+    GridItemWithDrawable("kotlin", R.drawable.kotlinlogo, QuestionCategory.FUNDAMENTALS),
+    GridItemWithDrawable("jetpack compose", R.drawable.jclogob, QuestionCategory.COMPOSE),
+    GridItemWithDrawable("Preguntas avanzadas", R.drawable.advancelogob, QuestionCategory.ADVANCED),
+    GridItemWithDrawable("poo", R.drawable.poologob, QuestionCategory.POO)
   )
   
   LazyVerticalGrid(
@@ -57,7 +61,8 @@ fun FilteredList(){
             .fillMaxWidth()
             .aspectRatio(1f)
             .clickable {
-              /*Se genera la accion de filtracion*/
+              onItemSelected(itemsImage[index].category.displayName)
+              onCloseModal()
             },
           colors = CardDefaults.cardColors(
             containerColor = Color(0xFF3D2A52).copy(alpha = 0.8f)
