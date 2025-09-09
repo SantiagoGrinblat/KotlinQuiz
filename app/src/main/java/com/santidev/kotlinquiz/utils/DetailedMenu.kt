@@ -10,12 +10,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
@@ -38,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.santidev.kotlinquiz.data.QuestionCategory
@@ -108,6 +111,8 @@ fun DetailedMenu(
             
             HorizontalDivider()
             
+            Spacer(Modifier.height(8.dp))
+            
             if (selectedCategory != null) {
               TextButton(
                 onClick = {
@@ -116,11 +121,34 @@ fun DetailedMenu(
                     drawerState.close()
                   }
                 },
-                modifier = Modifier.fillMaxWidth()
+                colors = ButtonDefaults.buttonColors(
+                  containerColor = Color.Transparent,
+                ),
+                modifier = Modifier
+                  .fillMaxWidth()
+                  .background(
+                    brush = Brush.linearGradient(
+                      colors = listOf(
+                        Color(0xFF2A1A3E),
+                        Color(0xFF1A1122)
+                      ),
+                      start = Offset(0f, 0f),
+                      end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
+                    ),
+                    shape = RoundedCornerShape(16.dp)
+                  )
+                  .border(
+                    width = 2.dp,
+                    brush = Brush.horizontalGradient(
+                      colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
+                    ),
+                    shape = RoundedCornerShape(16.dp)
+                  )
               ) {
                 Text(
                   "Mostrar todas las categorías",
-                  color = Color(0xFFB8A9C9)
+                  color = Color(0xFFB8A9C9),
+                  fontWeight = FontWeight.Bold
                 )
               }
             }
@@ -150,13 +178,14 @@ fun DetailedMenu(
         modifier = Modifier
           .align(Alignment.BottomEnd)
           .padding(16.dp)
+          .navigationBarsPadding()
           .border(
             width = 2.dp,
             brush = Brush.horizontalGradient(
               colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
             ),
             shape = RoundedCornerShape(16.dp)
-          )
+          ),
       ) {
         Icon(Icons.Default.Menu, contentDescription = "Abrir menú")
       }

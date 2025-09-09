@@ -75,24 +75,24 @@ fun DraggableOption(
         onDragEnd = {
           isDragging = false
           
-          // Verificamos si está dentro de la zona de destino
+          // Verificamos si esta dentro de la zona de destino
           dropTargetBounds?.let { bounds ->
-            // Calculamos la posición actual del centro del elemento
+            // se verifica la posicion actual del centro del elemento
             val currentElementX = initialPosition.x + offsetX + size.width / 2f
             val currentElementY = initialPosition.y + offsetY + size.height / 2f
             
-            // Verificamos si el centro está dentro de la zona de destino
+            // Verificamos si el centro esta dentro de la zona de destino
             val isInTarget = currentElementX >= bounds.left &&
                 currentElementX <= bounds.right &&
                 currentElementY >= bounds.top &&
                 currentElementY <= bounds.bottom
             
             if (isInTarget) {
-              onValidDrop() // Marcamos que fue un drop válido
-              onDropped(text) // Enviamos la respuesta
+              onValidDrop() // se marca que fue un drop valido
+              onDropped(text) // se envia la respuesta
             } else {
               Log.d("DRAGDROP", "Elemento '$text' soltado fuera de zona")
-              // NO ejecutamos onDropped si está fuera
+              // NO ejecutamos onDropped si esta fuera del area del elemento
             }
           } ?: Log.d("DRAGDROP", "No hay bounds definidos para '$text'")
           

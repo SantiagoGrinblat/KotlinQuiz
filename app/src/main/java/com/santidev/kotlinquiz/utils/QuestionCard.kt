@@ -1,5 +1,6 @@
 package com.santidev.kotlinquiz.utils
 
+import android.content.res.Configuration
 import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -11,7 +12,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -28,6 +31,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -43,10 +47,20 @@ fun QuestionCard(
 ) {
   var dropTargetBounds by remember { mutableStateOf<Rect?>(null) }
   var wasDroppedInTarget by remember { mutableStateOf(false) }
+  val configuration = LocalConfiguration.current
+  val orientation = configuration.orientation
+  val scrollState = rememberScrollState()
   
   Column(
     modifier = Modifier
       .fillMaxWidth()
+      .then( // para que tenga un scroll cuando este horizontal
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+          Modifier.verticalScroll(scrollState)
+        } else {
+          Modifier
+        }
+      )
       .padding(16.dp),
     verticalArrangement = Arrangement.Center,
     horizontalAlignment = Alignment.CenterHorizontally
