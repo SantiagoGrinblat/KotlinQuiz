@@ -16,5 +16,6 @@ enum class QuestionCategory(val displayName: String) {
   FUNDAMENTALS("Fundamentos Kotlin"),
   COMPOSE("Jetpack compose"),
   ADVANCED("Conceptos Avanzados"),
-  POO("Programación Orientada a Objetos")
+  POO("Programación Orientada a Objetos"),
+  TEST("Testing")
 }

@@ -241,7 +241,7 @@ val sampleQuestions = listOf(
     text = "¿Qué es el polimorfismo en Kotlin?",
     options = listOf("La posibilidad de usar genéricos", "El paso por referencia", "La capacidad de una función/clase de tener múltiples formas",),
     correctAnswer = "La capacidad de una función/clase de tener múltiples formas",
-    explanation = "El polimorfismo permite que una clase hija sobrescriba comportamientos de la clase padre o comparta una misma interfaz.",
+    explanation = "El polimorfismo permite que una clase hijo sobrescriba comportamientos de la clase padre o comparta una misma interfaz.",
     category = QuestionCategory.POO.displayName
   ),
   Question(
@@ -252,4 +252,116 @@ val sampleQuestions = listOf(
     explanation = "El companion object sirve para miembros estáticos asociados a una clase.",
     category = QuestionCategory.POO.displayName
   ),
+  Question(
+    id = 32,
+    text = "¿Qué es la herencia en Kotlin?",
+    options = listOf("Definir múltiples funciones con el mismo nombre", "Compartir variables entre objetos", "Una clase que puede extender otra para reutilizar su comportamiento"),
+    correctAnswer = "Una clase que puede extender otra para reutilizar su comportamiento",
+    explanation = "La herencia permite que una clase hijo reutilice y extienda la lógica de la clase padre.",
+    category = QuestionCategory.POO.displayName
+  ),
+  Question(
+    id = 33,
+    text = "¿Qué es un CoroutineScope?",
+    options = listOf("Un tipo de deferred", "Un contexto que define el ciclo de vida de corrutinas", "Una función suspendida"),
+    correctAnswer = "Un contexto que define el ciclo de vida de corrutinas",
+    explanation = "El CoroutineScope controla cuándo inician y cuándo se cancelan corrutinas asociadas.",
+    category = QuestionCategory.ADVANCED.displayName
+  ),
+  Question(
+    id = 34,
+    text = "¿Qué diferencia hay entre 'lazy' y 'lateinit'?",
+    options = listOf("'lazy' inicializa al primer acceso, 'lateinit' se inicializa manualmente antes de usarse", "Son equivalentes", "lateinit solo aplica a constantes"),
+    correctAnswer = "'lazy' inicializa al primer acceso, 'lateinit' se inicializa manualmente antes de usarse",
+    explanation = "'lazy' asegura inicialización diferida automática, 'lateinit' requiere inicializar explícitamente antes del uso.",
+    category = QuestionCategory.ADVANCED.displayName
+  ),
+  Question(
+    id = 35,
+    text = "¿Qué es un 'mock' en pruebas?",
+    options = listOf("Un objeto simulado que reemplaza dependencias reales", "Un test duplicado", "Un bug en el código"),
+    correctAnswer = "Un objeto simulado que reemplaza dependencias reales",
+    explanation = "Los mocks simulan dependencias externas para aislar la lógica que se está probando.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 36,
+    text = "Qué framework de pruebas unitarias se usa comúnmente en Kotlin con Android Studio?",
+    options = listOf("JUnit", "Mockito", "Espresso"),
+    correctAnswer = "JUnit",
+    explanation = "JUnit es el framework principal para pruebas unitarias en Android y Kotlin.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 37,
+    text = "Qué diferencia hay entre un test unitario y uno instrumentado?",
+    options = listOf("El unitario necesita un emulador, el instrumentado no", "El unitario corre en la JVM, el instrumentado corre en un dispositivo/emulador", "Son equivalentes"),
+    correctAnswer = "El unitario corre en la JVM, el instrumentado corre en un dispositivo/emulador",
+    explanation = "Los tests unitarios prueban la lógica sin Android Framework, mientras que los instrumentados prueban en un entorno Android real.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 38,
+    text = "Qué anotación se usa para indicar un método de test en JUnit?",
+    options = listOf("@RunWith", "@Mock", "@Test",),
+    correctAnswer = "@Test",
+    explanation = "La anotación @Test marca un método como una prueba unitaria ejecutable por JUnit.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 39,
+    text = "Qué se usa en pruebas para verificar que un valor es el esperado?",
+    options = listOf("assertEquals", "println", "checkValue"),
+    correctAnswer = "assertEquals",
+    explanation = "assertEquals compara el resultado esperado con el obtenido y falla si no coinciden.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 40,
+    text = "Qué librería se usa para simular objetos (mocks) en pruebas?",
+    options = listOf("Mockito", "JUnit", "Espresso"),
+    correctAnswer = "Mockito",
+    explanation = "Mockito permite crear objetos simulados para aislar dependencias en pruebas.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 41,
+    text = "Qué comando en Android Studio ejecuta todos los tests?",
+    options = listOf("Build → Make Project", "Run → Run Tests", "File → Sync Project"),
+    correctAnswer = "Run → Run Tests",
+    explanation = "La opción Run → Run Tests ejecuta todos los tests definidos en el proyecto.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 42,
+    text = "Qué diferencia hay entre assertTrue y assertFalse?",
+    options = listOf("assertTrue lanza error, assertFalse no", "No hay diferencia", "assertTrue pasa si la condición es verdadera, assertFalse si es falsa",),
+    correctAnswer = "assertTrue pasa si la condición es verdadera, assertFalse si es falsa",
+    explanation = "Son métodos de aserción que validan condiciones booleanas.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 43,
+    text = "Qué librería se usa en Android para pruebas de UI?",
+    options = listOf("Mockito", "JUnit", "Espresso"),
+    correctAnswer = "Espresso",
+    explanation = "Espresso permite interactuar con la UI de Android y verificar comportamientos.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 44,
+    text = "Qué es un test de integración?",
+    options = listOf("Un test de UI", "Un test unitario con mocks", "Una prueba que valida cómo interactúan varios módulos juntos",),
+    correctAnswer = "Una prueba que valida cómo interactúan varios módulos juntos",
+    explanation = "Los tests de integración aseguran que distintos componentes funcionen correctamente en conjunto.",
+    category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 45,
+    text = "Qué ventaja tiene usar pruebas automatizadas?",
+    options = listOf("Reemplazar la necesidad de programar", "Detectar errores rápido y asegurar calidad del código", "Evitar usar Android Studio"),
+    correctAnswer = "Detectar errores rápido y asegurar calidad del código",
+    explanation = "Las pruebas automatizadas reducen errores, ahorran tiempo y mejoran la mantenibilidad.",
+    category = QuestionCategory.TEST.displayName
+  )
 )

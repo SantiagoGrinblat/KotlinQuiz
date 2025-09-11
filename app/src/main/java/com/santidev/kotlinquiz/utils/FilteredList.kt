@@ -38,7 +38,8 @@ fun FilteredList(
     GridItemWithDrawable("kotlin", R.drawable.kotlinlogo, QuestionCategory.FUNDAMENTALS),
     GridItemWithDrawable("jetpack compose", R.drawable.jclogob, QuestionCategory.COMPOSE),
     GridItemWithDrawable("Preguntas avanzadas", R.drawable.advancelogob, QuestionCategory.ADVANCED),
-    GridItemWithDrawable("poo", R.drawable.poologob, QuestionCategory.POO)
+    GridItemWithDrawable("poo", R.drawable.poologob, QuestionCategory.POO),
+    GridItemWithDrawable("Testing", R.drawable.logotestingb, QuestionCategory.TEST)
   )
   
   LazyVerticalGrid(
