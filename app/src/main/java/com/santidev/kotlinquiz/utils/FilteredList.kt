@@ -46,7 +46,7 @@ fun FilteredList(
     columns = GridCells.Fixed(2), // 2 columnas para 4 elementos
     modifier = Modifier
       .fillMaxWidth()
-      .height(330.dp),
+      .height(490.dp),
     contentPadding = PaddingValues(
       start = 8.dp,
       top = 8.dp,
