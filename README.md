@@ -38,4 +38,4 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 1. Clona el repositorio
 
 ```bash
-
+git@github.com:SantiagoGrinblat/KotlinQuiz.git
