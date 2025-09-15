@@ -22,8 +22,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 ## 📸 Capturas de Pantalla
 
 <p float="left">
-  <img src="![Image](https://github.com/user-attachments/assets/77a379e5-124a-4b88-b2b1-a04e918fdcde)" width="200" />
-  <img src="/" width="200" />
+  <img src="https://github.com/SantiagoGrinblat/KotlinQuiz/blob/91e21b050c3b9795261438720bb8dd0e89daa96a/image1.jpeg" width="200" />
   <img src="/" width="200" />
 </p>
 
