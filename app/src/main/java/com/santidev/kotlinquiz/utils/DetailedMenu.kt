@@ -187,7 +187,7 @@ fun DetailedMenu(
             shape = RoundedCornerShape(16.dp)
           ),
       ) {
-        Icon(Icons.Default.Menu, contentDescription = "Abrir menú")
+        Icon(Icons.Default.Menu, contentDescription = "Abrir menú", tint = Color.White)
       }
     }
   }
