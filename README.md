@@ -22,8 +22,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 ## 📸 Capturas de Pantalla
 
 <p float="left">
-  ![Image](https://github.com/user-attachments/assets/77a379e5-124a-4b88-b2b1-a04e918fdcde)
-  <img src="/" width="200" />
+  <img src="![Image](https://github.com/user-attachments/assets/77a379e5-124a-4b88-b2b1-a04e918fdcde)" width="200" />
   <img src="/" width="200" />
   <img src="/" width="200" />
 </p>
