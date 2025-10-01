@@ -17,5 +17,6 @@ enum class QuestionCategory(val displayName: String) {
   COMPOSE("Jetpack compose"),
   ADVANCED("Conceptos Avanzados"),
   POO("Programación Orientada a Objetos"),
-  TEST("Testing")
+  TEST("Testing"),
+  ARCHITECTURE("Arquitectura")
 }

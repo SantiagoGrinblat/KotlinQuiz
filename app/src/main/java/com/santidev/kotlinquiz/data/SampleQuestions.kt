@@ -6,7 +6,7 @@ val sampleQuestions = listOf(
     text = "Cuál es la palabra clave para declarar una clase de datos?",
     options = listOf("class", "data class", "object"),
     correctAnswer = "data class",
-    explanation = "Las clases de datos se utilizan para representar datos inmutables.",
+    explanation = "Las data classes generan automáticamente equals(), hashCode(), toString() y copy(). Son ideales para representar datos simples.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -19,37 +19,34 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 3,
-    text = "¿Cual es la forma correcta de recordar un estado a travez de la recomposicion?",
-    options = listOf("remember{}", "rememberUpdatedState{}", "rememberSaveable{}"),
-    correctAnswer = "rememberSaveable{}",
-    explanation = "rememberSaveable es la forma que tiene jetpack compose, para recordar el estado actual de un composable y evitar la recomposicion al girar la pantalla del dispositivo",
+    text = "¿Cuál es la forma correcta de mantener un estado a través de las recomposiciones?",
+    options = listOf("var estado = ...", "remember { mutableStateOf(...) }", "rememberSaveable { mutableStateOf(...) }"),
+    correctAnswer = "remember { mutableStateOf(...) }",
+    explanation = "remember{} mantiene el estado durante recomposiciones. Para sobrevivir cambios de configuración (rotación), usa rememberSaveable{}.",
     category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 4,
-    text = "¿Qué palabra clave se usa para crear una corrutina en Kotlin?",
+    text = "¿Qué función se usa para lanzar una corrutina sin retornar un resultado?",
     options = listOf("launch", "async", "suspend", "runBlocking"),
     correctAnswer = "launch",
-    explanation = "launch inicia una nueva corrutina sin bloquear el hilo actual.",
+    explanation = "launch inicia una corrutina y retorna un Job. async retorna un Deferred con un resultado. suspend marca funciones suspendibles.",
     category = QuestionCategory.ADVANCED.displayName
   ),
   Question(
     id = 5,
-    text = "Cuál es la diferencia entre una data class y una class normal?",
-    options = listOf("Las data class generan equals, hashCode y toString automáticamente",
-      "Las class normales no pueden heredar",
-      "Las data class no aceptan constructores",
-      "No hay diferencia"),
-    correctAnswer = "Las data class generan equals, hashCode y toString automáticamente",
-    explanation = "Data class genera automáticamente funciones útiles como equals y toString.",
+    text = "¿Qué palabra clave se usa para permitir que una clase pueda ser heredada?",
+    options = listOf("open", "abstract", "sealed", "public"),
+    correctAnswer = "open",
+    explanation = "En Kotlin, las clases son final por defecto. Se usa 'open' para permitir herencia, o 'abstract' si queremos forzarla.",
     category = QuestionCategory.POO.displayName
   ),
   Question(
     id = 6,
-    text = "Cuál es la forma correcta de ver si un numero es Par O Impar?",
+    text = "¿Cuál es la forma correcta de verificar si un número es par?",
     options = listOf("if (numero / 2 == 0)","if (numero * 2 == 0)","if (numero % 2 == 0)", "if (numero / 2 == 2)"),
     correctAnswer = "if (numero % 2 == 0)",
-    explanation = "El operador ( % ) en Kotlin se llama módulo y comprueba si es divisible por 2, si lo es devulve 'Par', si no lo es devuelve 'Impar' ",
+    explanation = "El operador módulo (%) devuelve el resto de la división. Si numero % 2 == 0, el resto es 0, por lo tanto es par.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -62,10 +59,10 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 8,
-    text = "Cuál es la forma correcta de cambiar el texto de un Text según un estado mutable",
-    options = listOf("Text { miEstado }","Text(miEstado.setValue())","Text(miEstado.value)", "Text(text = miEstado)"),
-    correctAnswer = "Text(text = miEstado)",
-    explanation = "Al pasar la variable miEstado al parámetro text, Compose actualiza el texto automáticamente cuando cambia.",
+    text = "Si tienes 'val miEstado = remember { mutableStateOf('Hola!, Soy un titulo de estado') }', ¿cómo accedes al valor en un Text?",
+    options = listOf("Text(miEstado)", "Text(text = miEstado.value)", "Text { miEstado.value }", "Text(miEstado.get())"),
+    correctAnswer = "Text(text = miEstado.value)",
+    explanation = "MutableState<T> encapsula el valor. Debes acceder a ( .value ) para obtener el String. Compose observa los cambios automáticamente.",
     category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
@@ -81,15 +78,15 @@ val sampleQuestions = listOf(
     text = "Cuál es la forma correcta de cambiar el color de un Text",
     options = listOf("Text('Hola', Color.Red)","Text('Hola', color = Color.Red)","Text('Hola').color(Color.Red)", "Text(\"Hola\", textColor = Color.Red)"),
     correctAnswer = "Text('Hola', color = Color.Red)",
-    explanation = "El parámetro color define el color del texto.",
+    explanation = "El parámetro 'color' es un parámetro nombrado que define el color del texto en Compose.",
     category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
     id = 11,
     text = "¿Cuál es la diferencia entre 'val' y 'var' en Kotlin?",
     options = listOf("No hay diferencia", "val es inmutable, var es mutable", "var es inmutable, val es mutable"),
-    correctAnswer = "val es inmutable, var es mutable",
-    explanation = "'val' declara una propiedad de solo lectura (inmutable), mientras que 'var' permite modificar el valor.",
+    correctAnswer = "val es de solo lectura, var es reasignable",
+    explanation = "'val' declara una variable de solo lectura (no se puede reasignar un valor), mientras que 'var' permite reasignación de valores. Nota: val no garantiza inmutabilidad del objeto.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -102,18 +99,18 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 13,
-    text = "¿Cuál es la forma correcta de manejar nulos en Kotlin?",
-    options = listOf("Usando try-catch", "Usando el operador ( ? )", "Kotlin no maneja nulos"),
-    correctAnswer = "Usando el operador ( ? )",
-    explanation = "Kotlin usa el sistema de tipos nullable con el operador ( ? ) para manejar valores que pueden ser nulos de forma segura.",
+    text = "¿Qué operador se usa para declarar que una variable puede contener null?",
+    options = listOf("( ! )", "( ? )", "( ?: )", "nullable"),
+    correctAnswer = "( ? )",
+    explanation = "El operador ( ? ) después del tipo (ej: String?) indica que la variable puede ser null. Kotlin distingue tipos nullable de non-nullable.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
     id = 14,
-    text = "¿Qué manera se usa para heredar de una clase en Kotlin?",
-    options = listOf("extends", "inherits", "( : )"),
-    correctAnswer = "( : )",
-    explanation = "En Kotlin se usa '( : )' después del nombre de la clase para indicar herencia o implementación de interfaces.",
+    text = "¿Qué símbolo se usa para heredar de una clase en Kotlin?",
+    options = listOf("extends", ":", "->", "inherits"),
+    correctAnswer = ":",
+    explanation = "Se usa el operador ':' después del nombre de la clase. Ejemplo: class Perro : Animal(). También se usa para implementar interfaces.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -134,10 +131,10 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 17,
-    text = "¿Cuál es la palabra clave para crear una variable que NO puede ser nula?",
-    options = listOf("var", "val", "lateinit"),
+    text = "¿Qué palabra clave permite inicializar una propiedad no nula después de su declaración?",
+    options = listOf("lazy", "lateinit", "by", "delegate"),
     correctAnswer = "lateinit",
-    explanation = "lateinit permite declarar propiedades no nulas que se inicializan después, pero garantiza que no serán null cuando se accedan.",
+    explanation = "lateinit permite declarar propiedades var no nulas que se inicializarán más tarde. Restricciones: solo con var, no con tipos primitivos, y lanza UninitializedPropertyAccessException si se accede antes de inicializar.",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -150,7 +147,7 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 19,
-    text = "¿Cuál es la diferencia entre '==' y '===' en Kotlin??",
+    text = "¿Cuál es la diferencia entre '==' y '===' en Kotlin?",
     options = listOf("No hay diferencia", "== compara valor, === compara referencia", "== compara referencia, === compara valor"),
     correctAnswer = "== compara valor, === compara referencia",
     explanation = "== compara el contenido (llama a equals()), mientras que === compara si son el mismo objeto en memoria.",
@@ -161,7 +158,7 @@ val sampleQuestions = listOf(
     text = "¿Cuál es el operador Elvis en Kotlin?",
     options = listOf("( ?: )", "( ?? )", "( ?! )"),
     correctAnswer = "( ?: )",
-    explanation = "se utiliza para manejar valores nulos de manera concisa y segura, proporcionando un valor predeterminado cuando una expresión es nula. Si la expresión a la izquierda del operador no es nula, se devuelve su valor; si es nula, se devuelve el valor a la derecha del operador.",
+    explanation = "El operador Elvis (?:) proporciona un valor por defecto cuando la expresión es null. Ejemplo: val largo = texto?.length ?: 0",
     category = QuestionCategory.FUNDAMENTALS.displayName
   ),
   Question(
@@ -174,10 +171,10 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 22,
-    text = "¿Cuál es el propósito de 'SideEffect' en Compose?",
-    options = listOf("Ejecutar código cada vez que ocurre una recomposición", "Evitar fugas de memoria", "Persistir estado entre recomposiciones"),
-    correctAnswer = "Ejecutar código cada vez que ocurre una recomposición",
-    explanation = "SideEffect se usa para ejecutar acciones que deben ocurrir en cada recomposición.",
+    text = "¿Cuál es el propósito principal de 'SideEffect' en Compose?",
+    options = listOf("Ejecutar código una sola vez al crear el composable", "Sincronizar estado de Compose con APIs externas después de cada recomposición exitosa", "Manejar efectos secundarios con cancelación", "Guardar estado entre configuraciones"),
+    correctAnswer = "Sincronizar estado de Compose con APIs externas después de cada recomposición exitosa",
+    explanation = "SideEffect se ejecuta después de cada recomposición exitosa, útil para sincronizar estado de Compose con APIs no-Compose (ej: actualizar una View de Android).",
     category = QuestionCategory.COMPOSE.displayName
   ),
   Question(
@@ -230,10 +227,10 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 29,
-    text = "¿Cuál es la diferencia entre 'interface' y 'abstract class'?",
-    options = listOf("Son equivalentes", "Una interface no guarda estado, una abstract class sí puede", "Solo las interfaces pueden tener constructores"),
-    correctAnswer = "Una interface no guarda estado, una abstract class sí puede",
-    explanation = "Las interfaces definen contratos sin estado, mientras que las abstract class pueden contener propiedades con estado.",
+    text = "¿Cuál es la principal diferencia entre 'interface' y 'abstract class' en Kotlin?",
+    options = listOf("No hay diferencia en Kotlin moderno", "Una clase solo puede heredar de una abstract class, pero implementar múltiples interfaces", "Las interfaces no pueden tener constructores", "Las abstract class no pueden tener métodos implementados"),
+    correctAnswer = "Una clase solo puede heredar de una abstract class, pero implementar múltiples interfaces",
+    explanation = "La diferencia clave es la herencia: solo puedes extender una abstract class, pero implementar múltiples interfaces. Las abstract class pueden tener constructores con parámetros. Dato: En kotlin apartir de la version 1.9, las interfaces SÍ pueden tener estado",
     category = QuestionCategory.POO.displayName
   ),
   Question(
@@ -241,7 +238,7 @@ val sampleQuestions = listOf(
     text = "¿Qué es el polimorfismo en Kotlin?",
     options = listOf("La posibilidad de usar genéricos", "El paso por referencia", "La capacidad de una función/clase de tener múltiples formas",),
     correctAnswer = "La capacidad de una función/clase de tener múltiples formas",
-    explanation = "El polimorfismo permite que una clase hijo sobrescriba comportamientos de la clase padre o comparta una misma interfaz.",
+    explanation = "El polimorfismo permite que objetos de diferentes tipos sean tratados a través de una interfaz común. Incluye herencia (override) y sobrecarga (overload) de funciones.",
     category = QuestionCategory.POO.displayName
   ),
   Question(
@@ -286,7 +283,7 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 36,
-    text = "Qué framework de pruebas unitarias se usa comúnmente en Kotlin con Android Studio?",
+    text = "¿Qué framework de pruebas unitarias se usa comúnmente en Kotlin con Android Studio?",
     options = listOf("JUnit", "Mockito", "Espresso"),
     correctAnswer = "JUnit",
     explanation = "JUnit es el framework principal para pruebas unitarias en Android y Kotlin.",
@@ -294,7 +291,7 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 37,
-    text = "Qué diferencia hay entre un test unitario y uno instrumentado?",
+    text = "¿Qué diferencia hay entre un test unitario y uno instrumentado?",
     options = listOf("El unitario necesita un emulador, el instrumentado no", "El unitario corre en la JVM, el instrumentado corre en un dispositivo/emulador", "Son equivalentes"),
     correctAnswer = "El unitario corre en la JVM, el instrumentado corre en un dispositivo/emulador",
     explanation = "Los tests unitarios prueban la lógica sin Android Framework, mientras que los instrumentados prueban en un entorno Android real.",
@@ -302,7 +299,7 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 38,
-    text = "Qué anotación se usa para indicar un método de test en JUnit?",
+    text = "¿Qué anotación se usa para indicar un método de test en JUnit?",
     options = listOf("@RunWith", "@Mock", "@Test",),
     correctAnswer = "@Test",
     explanation = "La anotación @Test marca un método como una prueba unitaria ejecutable por JUnit.",
@@ -310,7 +307,7 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 39,
-    text = "Qué se usa en pruebas para verificar que un valor es el esperado?",
+    text = "¿Qué se usa en pruebas para verificar que un valor es el esperado?",
     options = listOf("assertEquals", "println", "checkValue"),
     correctAnswer = "assertEquals",
     explanation = "assertEquals compara el resultado esperado con el obtenido y falla si no coinciden.",
@@ -318,23 +315,23 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 40,
-    text = "Qué librería se usa para simular objetos (mocks) en pruebas?",
-    options = listOf("Mockito", "JUnit", "Espresso"),
-    correctAnswer = "Mockito",
-    explanation = "Mockito permite crear objetos simulados para aislar dependencias en pruebas.",
+    text = "¿Qué librería se usa para simular objetos (mocks) en pruebas?",
+    options = listOf("Mockito o MockK", "JUnit", "Espresso"),
+    correctAnswer = "Mockito o MockK",
+    explanation = "Mockito y MockK permiten crear objetos simulados. MockK está diseñado específicamente para Kotlin.",
     category = QuestionCategory.TEST.displayName
   ),
   Question(
     id = 41,
-    text = "Qué comando en Android Studio ejecuta todos los tests?",
+    text = "¿Qué opción en Android Studio ejecuta todos los tests del proyecto",
     options = listOf("Build → Make Project", "Run → Run Tests", "File → Sync Project"),
     correctAnswer = "Run → Run Tests",
-    explanation = "La opción Run → Run Tests ejecuta todos los tests definidos en el proyecto.",
+    explanation = "La opción 'Run → Run Tests' ejecuta todos los tests. También puedes usar Gradle: ./gradlew test",
     category = QuestionCategory.TEST.displayName
   ),
   Question(
     id = 42,
-    text = "Qué diferencia hay entre assertTrue y assertFalse?",
+    text = "¿Qué diferencia hay entre assertTrue y assertFalse?",
     options = listOf("assertTrue lanza error, assertFalse no", "No hay diferencia", "assertTrue pasa si la condición es verdadera, assertFalse si es falsa",),
     correctAnswer = "assertTrue pasa si la condición es verdadera, assertFalse si es falsa",
     explanation = "Son métodos de aserción que validan condiciones booleanas.",
@@ -342,15 +339,15 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 43,
-    text = "Qué librería se usa en Android para pruebas de UI?",
-    options = listOf("Mockito", "JUnit", "Espresso"),
-    correctAnswer = "Espresso",
-    explanation = "Espresso permite interactuar con la UI de Android y verificar comportamientos.",
+    text = "¿Qué se usa para probar interfaces de usuario en Jetpack Compose?",
+    options = listOf("Espresso", "Compose UI Testing", "Mockito", "JUnit"),
+    correctAnswer = "Compose UI Testing",
+    explanation = "Compose UI Testing (androidx.compose.ui:ui-test) está diseñado específicamente para probar composables.",
     category = QuestionCategory.TEST.displayName
   ),
   Question(
     id = 44,
-    text = "Qué es un test de integración?",
+    text = "¿Qué es un test de integración?",
     options = listOf("Un test de UI", "Un test unitario con mocks", "Una prueba que valida cómo interactúan varios módulos juntos",),
     correctAnswer = "Una prueba que valida cómo interactúan varios módulos juntos",
     explanation = "Los tests de integración aseguran que distintos componentes funcionen correctamente en conjunto.",
@@ -358,10 +355,90 @@ val sampleQuestions = listOf(
   ),
   Question(
     id = 45,
-    text = "Qué ventaja tiene usar pruebas automatizadas?",
+    text = "¿Qué ventaja tiene usar pruebas automatizadas?",
     options = listOf("Reemplazar la necesidad de programar", "Detectar errores rápido y asegurar calidad del código", "Evitar usar Android Studio"),
     correctAnswer = "Detectar errores rápido y asegurar calidad del código",
     explanation = "Las pruebas automatizadas reducen errores, ahorran tiempo y mejoran la mantenibilidad.",
     category = QuestionCategory.TEST.displayName
+  ),
+  Question(
+    id = 46,
+    text = "¿Qué significa MVVM?",
+    options = listOf("Model-View-ViewModel", "Model-Variable-ViewModel", "Manager-View-ViewModel", "Model-View-ViewManager"),
+    correctAnswer = "Model-View-ViewModel",
+    explanation = "MVVM es un patrón arquitectónico que separa la lógica de negocio (ViewModel) de la UI (View) usando un Model para los datos.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 47,
+    text = "¿Cuál es la principal responsabilidad de un ViewModel en MVVM?",
+    options = listOf("Manejar navegación entre pantallas", "Contener la lógica de negocio y preparar datos para la UI", "Acceder directamente a la base de datos", "Renderizar los composables"),
+    correctAnswer = "Contener la lógica de negocio y preparar datos para la UI",
+    explanation = "El ViewModel maneja la lógica de presentación, expone estados observables y sobrevive a cambios de configuración. No debe conocer detalles de la UI.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 48,
+    text = "¿Qué es el Repository Pattern?",
+    options = listOf("Un patrón para guardar datos solo en memoria", "Una capa que abstrae las fuentes de datos y provee una API limpia", "Un tipo especial de ViewModel", "Una base de datos local"),
+    correctAnswer = "Una capa que abstrae las fuentes de datos y provee una API limpia",
+    explanation = "El Repository centraliza el acceso a datos (API, base de datos, caché) y decide de dónde obtenerlos, ocultando esta complejidad al ViewModel.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 49,
+    text = "¿En qué capa de Clean Architecture van los casos de uso (Use Cases)?",
+    options = listOf("Presentation Layer", "Data Layer", "Domain Layer", "UI Layer"),
+    correctAnswer = "Domain Layer",
+    explanation = "Los Use Cases están en el Domain Layer, contienen la lógica de negocio pura e independiente de frameworks. Son el núcleo de la aplicación.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 50,
+    text = "¿Qué principio arquitectónico establece que debe haber una única fuente de verdad para los datos?",
+    options = listOf("Dependency Inversion", "Single Source of Truth (SSOT)", "Separation of Concerns", "Don't Repeat Yourself (DRY)"),
+    correctAnswer = "Single Source of Truth (SSOT)",
+    explanation = "SSOT significa que cada dato tiene una única fuente autoritativa, evitando inconsistencias. Por ejemplo, el Repository es el SSOT para datos de negocio.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 51,
+    text = "¿Cuál es la diferencia principal entre MVVM y MVI?",
+    options = listOf("MVI no usa ViewModels", "MVI maneja el estado de la UI como un flujo unidireccional de eventos", "MVVM es solo para Android, MVI para multiplataforma", "No hay diferencia real"),
+    correctAnswer = "MVI maneja el estado de la UI como un flujo unidireccional de eventos",
+    explanation = "MVI (Model-View-Intent) enfatiza un flujo unidireccional: Intent → Model → View. El estado es inmutable y cada acción genera un nuevo estado.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 52,
+    text = "¿Por qué un ViewModel NO debe tener referencias a Views o Context de Activity?",
+    options = listOf("Porque causaría memory leaks al sobrevivir cambios de configuración", "Porque Android Studio lo prohíbe", "No hay problema en tenerlas", "Solo en modo debug está prohibido"),
+    correctAnswer = "Porque causaría memory leaks al sobrevivir cambios de configuración",
+    explanation = "El ViewModel sobrevive a la recreación de Activities/Fragments. Si tiene referencias a Views o Context, provocará memory leaks y posibles crashes.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 53,
+    text = "¿Qué son las capas en Clean Architecture?",
+    options = listOf("Solo UI y Data", "Presentation, Domain y Data (con dependencias hacia el centro)", "Model y View únicamente", "Frontend y Backend"),
+    correctAnswer = "Presentation, Domain y Data (con dependencias hacia el centro)",
+    explanation = "Clean Architecture divide la app en capas concéntricas: Domain (centro, lógica pura), Data (fuentes de datos) y Presentation (UI). Las dependencias apuntan hacia adentro.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 54,
+    text = "¿Cuándo es recomendable usar Use Cases en lugar de llamar directamente al Repository desde el ViewModel?",
+    options = listOf("Nunca, siempre llamar directo al Repository", "Cuando la lógica de negocio es compleja o combina múltiples fuentes de datos", "Solo en apps grandes con más de 50 pantallas", "Use Cases y Repository son lo mismo"),
+    correctAnswer = "Cuando la lógica de negocio es compleja o combina múltiples fuentes de datos",
+    explanation = "Los Use Cases encapsulan lógica de negocio reutilizable. Son útiles cuando hay reglas complejas, múltiples repositorios, o lógica que no pertenece al ViewModel.",
+    category = QuestionCategory.ARCHITECTURE.displayName
+  ),
+  Question(
+    id = 55,
+    text = "¿Qué patrón arquitectónico se recomienda oficialmente para apps Android modernas?",
+    options = listOf("MVC (Model-View-Controller)", "MVP (Model-View-Presenter)", "MVVM con arquitectura de capas", "Ninguno, es libre elección sin recomendación"),
+    correctAnswer = "MVVM con arquitectura de capas",
+    explanation = "Google recomienda MVVM con separación en capas (UI, Domain, Data) en su guía oficial de arquitectura para apps Android modernas.",
+    category = QuestionCategory.ARCHITECTURE.displayName
   )
 )

@@ -96,26 +96,28 @@ fun QuestionCard(
     
     Spacer(modifier = Modifier.height(16.dp))
     
-    FlowRow(
-      horizontalArrangement = Arrangement.spacedBy(12.dp),
-      verticalArrangement = Arrangement.spacedBy(12.dp)
-    ) {
-      question.options.forEach { option ->
-        key(option + question.id) {
-          DraggableOption(
-            text = option,
-            onDropped = { selected ->
-              if (wasDroppedInTarget) {
-                Log.d("QuestionCard", "Respuesta válida recibida: $selected")
-                onAnswerDropped(selected)
-                wasDroppedInTarget = false
-              } else {
-                Log.d("QuestionCard", "Respuesta ignorada (no se soltó en zona): $selected")
-              }
-            },
-            dropTargetBounds = dropTargetBounds,
-            onValidDrop = { wasDroppedInTarget = true }
-          )
+    if (isCorrect == null) {
+      FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+      ) {
+        question.options.forEach { option ->
+          key(option + question.id) {
+            DraggableOption(
+              text = option,
+              onDropped = { selected ->
+                if (wasDroppedInTarget) {
+                  Log.d("QuestionCard", "Respuesta válida recibida: $selected")
+                  onAnswerDropped(selected)
+                  wasDroppedInTarget = false
+                } else {
+                  Log.d("QuestionCard", "Respuesta ignorada (no se soltó en zona): $selected")
+                }
+              },
+              dropTargetBounds = dropTargetBounds,
+              onValidDrop = { wasDroppedInTarget = true }
+            )
+          }
         }
       }
     }
