@@ -23,7 +23,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 
 <p float="left">
   <img src="https://github.com/SantiagoGrinblat/KotlinQuiz/blob/f9500b3e2e10fb10b8f77e467360440ed5d4eec7/imagen1.jpeg" width="200" />
-  <img src="https://github.com/SantiagoGrinblat/KotlinQuiz/blob/8d318e94016e19a76d22739ad594ea7a6fd67b02/image2.jpeg" width="200" />
+  <img src="https://github.com/SantiagoGrinblat/KotlinQuiz/blob/7e539b19e6904dad66456e5f50f6847828ebf536/imagen2.jpeg" width="200" />
 </p>
 
 ## 🧰 Tecnologías usadas
