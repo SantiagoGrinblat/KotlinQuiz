@@ -28,6 +28,7 @@ import com.santidev.kotlinquiz.utils.QuestionCard
 fun QuizScreen() {
   var currentQuestionIndex by remember { mutableStateOf(0) }
   var isCorrect by remember { mutableStateOf<Boolean?>(null) }
+  var selectedAnswer by remember { mutableStateOf<String?>(null) }
   var selectedCategory by remember { mutableStateOf<String?>(null) }
   
   val questionsRandom = remember(selectedCategory) {
@@ -41,6 +42,7 @@ fun QuizScreen() {
   LaunchedEffect(selectedCategory) {
     currentQuestionIndex = 0
     isCorrect = null
+    selectedAnswer = null
   }
   
   val totalQuestions = questionsRandom.size
@@ -71,18 +73,22 @@ fun QuizScreen() {
           //Antes estaba isCorrect = isCorrect == true, pero no funcionaba el texto que cambia.
           //tambien tuve que modificar el boolean de DropTargetArea y agregar el signo de interrogacion.
           //ademas de modificar el if del archivo QuestionCard : if (isCorrect != null) <- para que me tome la respuesat inicial siempre como null.
+          selectedAnswer = selectedAnswer,
           onAnswerDropped = { selected ->
+            selectedAnswer = selected
             isCorrect = selected == currentQuestions.correctAnswer
           },
           onNextQuestion = {
             if (currentQuestionIndex < questionsRandom.size - 1) {
               currentQuestionIndex++
               isCorrect = null
+              selectedAnswer = null
             } else {
               currentQuestionIndex = 0
               isCorrect = null
+              selectedAnswer = null
             }
-          }
+          },
         )
       }
     }

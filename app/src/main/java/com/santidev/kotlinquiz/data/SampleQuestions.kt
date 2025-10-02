@@ -84,7 +84,7 @@ val sampleQuestions = listOf(
   Question(
     id = 11,
     text = "¿Cuál es la diferencia entre 'val' y 'var' en Kotlin?",
-    options = listOf("No hay diferencia", "val es inmutable, var es mutable", "var es inmutable, val es mutable"),
+    options = listOf("No hay diferencia", "val es de solo lectura, var es reasignable", "var es inmutable, val es mutable"),
     correctAnswer = "val es de solo lectura, var es reasignable",
     explanation = "'val' declara una variable de solo lectura (no se puede reasignar un valor), mientras que 'var' permite reasignación de valores. Nota: val no garantiza inmutabilidad del objeto.",
     category = QuestionCategory.FUNDAMENTALS.displayName

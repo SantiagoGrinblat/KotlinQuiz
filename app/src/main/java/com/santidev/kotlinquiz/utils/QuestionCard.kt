@@ -42,6 +42,7 @@ import com.santidev.kotlinquiz.data.Question
 fun QuestionCard(
   question: Question,
   isCorrect: Boolean?,
+  selectedAnswer: String?,
   onAnswerDropped: (String) -> Unit,
   onNextQuestion: () -> Unit
 ) {
@@ -96,28 +97,59 @@ fun QuestionCard(
     
     Spacer(modifier = Modifier.height(16.dp))
     
-    if (isCorrect == null) {
-      FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp)
-      ) {
-        question.options.forEach { option ->
-          key(option + question.id) {
-            DraggableOption(
-              text = option,
-              onDropped = { selected ->
-                if (wasDroppedInTarget) {
-                  Log.d("QuestionCard", "Respuesta válida recibida: $selected")
-                  onAnswerDropped(selected)
-                  wasDroppedInTarget = false
-                } else {
-                  Log.d("QuestionCard", "Respuesta ignorada (no se soltó en zona): $selected")
-                }
-              },
-              dropTargetBounds = dropTargetBounds,
-              onValidDrop = { wasDroppedInTarget = true }
-            )
+    when {
+      //si no se respondio la pregunta O si se respondio mal.
+      //mostrrar todas las preguntas
+      selectedAnswer == null || isCorrect == false -> {
+        FlowRow(
+          horizontalArrangement = Arrangement.spacedBy(12.dp),
+          verticalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
+          question.options.forEach { option ->
+            key(option + question.id) {
+              DraggableOption(
+                text = option,
+                onDropped = { selected ->
+                  if (wasDroppedInTarget) {
+                    Log.d("QuestionCard", "Respuesta válida recibida: $selected")
+                    onAnswerDropped(selected)
+                    wasDroppedInTarget = false
+                  } else {
+                    Log.d("QuestionCard", "Respuesta ignorada (no se soltó en zona): $selected")
+                  }
+                },
+                dropTargetBounds = dropTargetBounds,
+                onValidDrop = { wasDroppedInTarget = true }
+              )
+            }
           }
+        }
+      }
+      //si se respondio bien la pregunta mostrar unicaemnte
+      isCorrect == true && selectedAnswer != null -> {
+        Box(
+          modifier = Modifier
+            .fillMaxWidth()
+            .background(
+              color = Color(0xFF1B5E20), // Verde
+              shape = RoundedCornerShape(12.dp)
+            )
+            .border(
+              width = 2.dp,
+              color = Color(0xFF4CAF50),
+              shape = RoundedCornerShape(12.dp)
+            )
+            .padding(16.dp),
+          contentAlignment = Alignment.Center
+        ) {
+          Text(
+            text = selectedAnswer,
+            style = MaterialTheme.typography.titleMedium,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            color = Color.White,
+            textAlign = TextAlign.Center
+          )
         }
       }
     }
@@ -129,7 +161,7 @@ fun QuestionCard(
         Box(
           modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp)
+            .padding(8.dp)
             .background(
               brush = Brush.linearGradient(
                 colors = listOf(
