@@ -15,6 +15,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
     - Conceptos avanzados de Kotlin.
     - Programación orientada a objetos.
     - Testing.
+    - Arquitectura.
 
 - **Diseño Simple y Claro**  
   Interfaz intuitiva para facilitar su uso diario.
