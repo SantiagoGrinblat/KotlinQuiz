@@ -31,6 +31,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 
 - 🛠️ **Kotlin** + **Jetpack Compose**
 - 🌙 **Material 3**
+- 🧪 **Mockk**
 
 ## 📦 Instalación
 
