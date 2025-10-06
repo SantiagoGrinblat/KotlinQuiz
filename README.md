@@ -44,5 +44,3 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 ```bash
 git clone git@github.com:SantiagoGrinblat/KotlinQuiz.git
 cd KotlinQuiz
-
-2. Abrir en Android Studio
