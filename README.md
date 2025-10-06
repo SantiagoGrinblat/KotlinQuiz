@@ -5,7 +5,7 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 
 ## 🚀 Características
 
-- **Función de la App :**:  
+- **Función de la App :**
   Kotlin Quiz es una aplicación interactiva que permite estudiar y repasar conceptos clave del desarrollo Android con Kotlin. La idea surgió como herramienta de estudio personal, pero está disponible para cualquier desarrollador que quiera mantener sus conocimientos actualizados o prepararse para entrevistas técnicas.
 
 - **Categorias de preguntas :**:
