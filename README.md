@@ -17,9 +17,10 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
     - Arquitectura.
 
 - **Diseño Simple y Claro**  
-  Interfaz intuitiva para facilitar su uso diario.
+  - Interfaz intuitiva para facilitar su uso diario.
 
-- ****
+- **Filtrado por Categoría**
+  - Estudia temas específicos según tus necesidades
 
 ## 📸 Capturas de Pantalla
 
