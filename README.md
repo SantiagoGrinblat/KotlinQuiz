@@ -58,3 +58,10 @@ Espera a que Gradle sincronice las dependencias
 Conecta un dispositivo Android o inicia un emulador
 Presiona el botón "Run" (▶️)
 
+## 🤝 Contribuir
+  - ¡Las contribuciones son bienvenidas! Si quieres agregar nuevas preguntas o mejorar la aplicación
+
+
+## 👨‍💻 Autor
+  Santiago Grinblat
+
