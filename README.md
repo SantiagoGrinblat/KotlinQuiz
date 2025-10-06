@@ -35,12 +35,24 @@ Me tomo esta app para mi estudio personal, y para quien mas quiera utilizarla pa
 ## 🧰 Tecnologías usadas
 
 - 🛠️ **Kotlin** + **Jetpack Compose**
-- 🌙 **Material 3**
-- 🧪 **Mockk**
+- 🧪 **Mockk** + **JUnit 4**
 
-## 📦 Instalación
+## 📦 Instalación y Configuración
 
 1. Clona el repositorio
 
 ```bash
 git clone git@github.com:SantiagoGrinblat/KotlinQuiz.git
+cd KotlinQuiz
+
+2. Abrir en Android Studio
+
+Abre Android Studio
+Selecciona "Open an existing project"
+Navega hasta la carpeta del proyecto
+Espera a que Gradle sincronice las dependencias
+
+3. Ejecutar la aplicación
+
+Conecta un dispositivo Android o inicia un emulador
+Presiona el botón "Run" (▶️)
