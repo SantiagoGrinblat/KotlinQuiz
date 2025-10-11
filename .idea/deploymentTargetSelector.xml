@@ -5,9 +5,6 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="DetailedMenuKtTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="whenCategorySelected_filterTextIsDisplayed()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>

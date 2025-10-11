@@ -18,24 +18,31 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.santidev.kotlinquiz.data.sampleQuestions
+import com.santidev.kotlinquiz.data.QuestionRepository
 import com.santidev.kotlinquiz.utils.DetailedMenu
 import com.santidev.kotlinquiz.utils.QuestionCard
 
 @Composable
 fun QuizScreen() {
+  
+  val context = LocalContext.current
+  val allQuestions = remember {
+    QuestionRepository(context).loadQuestions()
+  }
+  
   var currentQuestionIndex by remember { mutableStateOf(0) }
   var isCorrect by remember { mutableStateOf<Boolean?>(null) }
   var selectedAnswer by remember { mutableStateOf<String?>(null) }
   var selectedCategory by remember { mutableStateOf<String?>(null) }
   
-  val questionsRandom = remember(selectedCategory) {
+  val questionsRandom = remember(selectedCategory, allQuestions) {
     if (selectedCategory == null) {
-      sampleQuestions.shuffled()
+      allQuestions.shuffled()
     } else {
-      sampleQuestions.filter { it.category == selectedCategory }.shuffled()
+      allQuestions.filter { it.category == selectedCategory }.shuffled()
     }
   }
   
