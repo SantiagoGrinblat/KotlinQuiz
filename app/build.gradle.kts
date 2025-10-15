@@ -57,6 +57,9 @@ dependencies {
   testImplementation(libs.mockk)
   androidTestImplementation(libs.mockk.android)
   
+  //Navigation
+  implementation(libs.androidx.navigation.compose)
+  
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
   implementation(libs.androidx.activity.compose)

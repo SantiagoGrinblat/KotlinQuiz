@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.santidev.kotlinquiz.data.QuestionRepository
 import com.santidev.kotlinquiz.utils.DetailedMenu
 import com.santidev.kotlinquiz.utils.QuestionCard
+import com.santidev.kotlinquiz.utils.components.ButtonUsers
 
 @Composable
 fun QuizScreen() {
@@ -99,5 +100,6 @@ fun QuizScreen() {
         )
       }
     }
+    ButtonUsers()
   }
 }
