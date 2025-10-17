@@ -3,11 +3,8 @@ package com.santidev.kotlinquiz.ui.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,7 +16,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.santidev.kotlinquiz.data.QuestionRepository
 import com.santidev.kotlinquiz.utils.DetailedMenu
@@ -27,7 +23,7 @@ import com.santidev.kotlinquiz.utils.QuestionCard
 import com.santidev.kotlinquiz.utils.components.ButtonUsers
 
 @Composable
-fun QuizScreen() {
+fun QuizScreen(navigateToUser: () -> Unit) {
   
   val context = LocalContext.current
   val allQuestions = remember {
@@ -100,6 +96,8 @@ fun QuizScreen() {
         )
       }
     }
-    ButtonUsers()
+    ButtonUsers(
+      onClick = { navigateToUser() }
+    )
   }
 }
