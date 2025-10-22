@@ -1,23 +1,9 @@
 package com.santidev.kotlinquiz.ui.screen
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.santidev.kotlinquiz.utils.components.ComponentsUser.DetailedUser
 
 @Composable
 fun UserScreen(onNavigateBack: () -> Unit) {
-  Column(modifier = Modifier
-    .fillMaxSize()
-    .padding(16.dp),
-    verticalArrangement = Arrangement.Center,
-    horizontalAlignment = Alignment.CenterHorizontally
-  ) {
-    Text("PANTALLA DE USER SCREEN")
-  }
+  DetailedUser(onNavigateBack = onNavigateBack)
 }

@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.santidev.kotlinquiz" />
+                  <option name="mobileSdkAppId" value="1:588666420377:android:ba5c0ebcd889c91f7b0c08" />
+                  <option name="projectId" value="kotlinquiz-3ab11" />
+                  <option name="projectNumber" value="588666420377" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

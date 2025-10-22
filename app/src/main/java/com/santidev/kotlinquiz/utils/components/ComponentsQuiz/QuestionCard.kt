@@ -1,4 +1,4 @@
-package com.santidev.kotlinquiz.utils
+package com.santidev.kotlinquiz.utils.components.ComponentsQuiz
 
 import android.content.res.Configuration
 import android.util.Log

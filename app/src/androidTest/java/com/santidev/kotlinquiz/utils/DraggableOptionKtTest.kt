@@ -6,6 +6,7 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTouchInput
+import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.DraggableOption
 import org.junit.Assert.*
 import org.junit.Rule
 import org.junit.Test

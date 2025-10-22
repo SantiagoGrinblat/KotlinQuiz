@@ -1,4 +1,4 @@
-package com.santidev.kotlinquiz.utils
+package com.santidev.kotlinquiz.utils.components.ComponentsQuiz
 
 import com.santidev.kotlinquiz.data.QuestionCategory
 

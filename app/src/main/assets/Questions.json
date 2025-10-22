@@ -37,7 +37,7 @@
     "options": ["open", "abstract", "sealed", "public"],
     "correctAnswer": "open",
     "explanation": "En Kotlin, las clases son final por defecto. Se usa 'open' para permitir herencia, o 'abstract' si queremos forzarla.",
-    "category": "Programación Orientada a Objeto"
+    "category": "Programación Orientada a Objetos"
   },
   {
     "id": 6,
@@ -244,7 +244,7 @@
     "options":  ["Son equivalentes", "companion object está ligado a una clase, object normal es un singleton global", "companion object no puede contener métodos"],
     "correctAnswer": "companion object está ligado a una clase, object normal es un singleton global",
     "explanation": "El companion object sirve para miembros estáticos asociados a una clase.",
-    "category": "Programación Orientada a Objeto"
+    "category": "Programación Orientada a Objetos"
   },
   {
     "id": 32,
@@ -252,7 +252,7 @@
     "options": ["Definir múltiples funciones con el mismo nombre", "Compartir variables entre objetos", "Una clase que puede extender otra para reutilizar su comportamiento"],
     "correctAnswer": "Una clase que puede extender otra para reutilizar su comportamiento",
     "explanation": "La herencia permite que una clase hijo reutilice y extienda la lógica de la clase padre.",
-    "category": "Programación Orientada a Objeto"
+    "category": "Programación Orientada a Objetos"
   },
   {
     "id": 33,
@@ -437,5 +437,101 @@
     "correctAnswer": "MVVM con arquitectura de capas",
     "explanation": "Google recomienda MVVM con separación en capas (UI, Domain, Data) en su guía oficial de arquitectura para apps Android modernas.",
     "category": "Arquitectura"
+  },
+  {
+    "id": 56,
+    "text": "¿Cuál es la diferencia entre 'abstract class' y 'sealed class'?",
+    "options": ["No hay diferencia real", "abstract class no puede tener métodos implementados", "sealed class no puede tener propiedades", "sealed class restringe las subclases a estar en el mismo archivo/paquete"],
+    "correctAnswer": "sealed class restringe las subclases a estar en el mismo archivo/paquete",
+    "explanation": "Las sealed classes limitan la jerarquía de herencia a subclases conocidas (mismo archivo en Kotlin <1.5, mismo paquete en 1.5+), permitiendo exhaustividad en expresiones when.",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 57,
+    "text": "¿Qué es el 'encapsulamiento' en POO?",
+    "options": [ "Heredar de múltiples clases", "Crear objetos singleton", "Ocultar los detalles internos y exponer solo lo necesario mediante modificadores de acceso", "Sobrescribir métodos de la clase padre"],
+    "correctAnswer": "Ocultar los detalles internos y exponer solo lo necesario mediante modificadores de acceso",
+    "explanation": "El encapsulamiento protege los datos internos usando private, protected, internal, y expone solo lo necesario con public. Esto mejora la seguridad y mantenibilidad del código.",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 58,
+    "text": "¿Qué hace la palabra clave 'override' en Kotlin?",
+    "options": ["Crea una nueva función", "Permite sobrescribir una función o propiedad de la clase padre", "Declara una función abstracta", "Hace que una función sea privada"],
+    "correctAnswer": "Permite sobrescribir una función o propiedad de la clase padre",
+    "explanation": "override redefine el comportamiento de un método o propiedad heredada. La función en la clase padre debe estar marcada como 'open' o 'abstract'.",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 59,
+    "text": "¿Pueden las data classes heredar de otras clases en Kotlin?",
+    "options": ["Sí, pueden heredar de clases open o abstract, pero no de otras data classes", "No, nunca pueden heredar",  "Solo pueden heredar de interfaces", "Solo si usan la palabra clave 'extends'"],
+    "correctAnswer": "Sí, pueden heredar de clases open o abstract, pero no de otras data classes",
+    "explanation": "Las data classes pueden heredar de clases normales, open o abstract, e implementar interfaces. No pueden heredar de otras data classes ni ser heredadas (son final por defecto).",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 60,
+    "text": "¿Qué es la delegación en Kotlin y qué palabra clave se usa?",
+    "options": ["Heredar de múltiples clases usando 'extends'", "Crear propiedades lazy usando 'lateinit'", "Delegar la implementación de una interfaz a otro objeto usando 'by'", "Sobrescribir métodos usando 'override'"],
+    "correctAnswer": "Delegar la implementación de una interfaz a otro objeto usando 'by'",
+    "explanation": "La delegación con 'by' permite que una clase delegue la implementación de una interfaz a otro objeto, favoreciendo composición sobre herencia. Ejemplo: class Manager(worker: Worker) : Worker by worker",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 61,
+    "text": "¿Qué modificador de visibilidad en Kotlin restringe el acceso solo dentro del mismo módulo?",
+    "options": ["private", "protected", "internal", "public"],
+    "correctAnswer": "internal",
+    "explanation": "El modificador 'internal' hace que una clase, función o propiedad sea visible solo dentro del mismo módulo de compilación. Es exclusivo de Kotlin y no existe en Java.",
+    "category": "Programación Orientada a Objetos"
+  },
+  {
+    "id": 62,
+    "text": "¿Cuál es la diferencia entre 'StateFlow' y 'SharedFlow'?",
+    "options": ["No hay diferencia, son equivalentes", "StateFlow siempre tiene un valor inicial y emite el último valor a nuevos suscriptores", "SharedFlow es solo para UI, StateFlow para lógica de negocio", "StateFlow no puede emitir valores null"],
+    "correctAnswer": "StateFlow siempre tiene un valor inicial y emite el último valor a nuevos suscriptores",
+    "explanation": "StateFlow requiere un valor inicial y mantiene estado (hot flow). SharedFlow no requiere valor inicial y puede configurarse para no replicar valores (también hot flow).",
+    "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 63,
+    "text": "¿Qué hace la función 'suspend' en Kotlin?",
+    "options": ["Pausa la ejecución de toda la app", "Marca una función como suspendible, permitiendo pausar y reanudar su ejecución sin bloquear el hilo", "Convierte una función en asíncrona automáticamente", "Cancela todas las corrutinas activas"],
+    "correctAnswer": "Marca una función como suspendible, permitiendo pausar y reanudar su ejecución sin bloquear el hilo",
+    "explanation": "Las funciones 'suspend' pueden ser pausadas en puntos de suspensión y reanudadas más tarde, permitiendo operaciones asíncronas sin bloquear hilos. Solo pueden llamarse desde corrutinas u otras funciones suspend.",
+    "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 64,
+    "text": "¿Cuál es la diferencia entre 'Flow' y 'Sequence' en Kotlin?",
+    "options": ["Flow es asíncrono y soporta suspend functions, Sequence es síncrono", "Son exactamente lo mismo", "Sequence solo funciona con números", "Flow no puede usar operadores como map o filter"],
+    "correctAnswer": "Flow es asíncrono y soporta suspend functions, Sequence es síncrono",
+    "explanation": "Flow permite operaciones asíncronas y puede usar funciones suspend. Sequence es síncrono, lazy y bloqueante. Ambos son cold streams (solo ejecutan cuando se consumen).",
+    "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 65,
+    "text": "¿Qué es un 'Higher-Order Function' (función de orden superior)?",
+    "options": ["Una función que llama a otras funciones", "Una función que solo trabaja con números grandes", "Una función declarada con la palabra clave 'high'", "Una función que recibe funciones como parámetros o retorna funciones"],
+    "correctAnswer": "Una función que recibe funciones como parámetros o retorna funciones",
+    "explanation": "Las funciones de orden superior tratan funciones como valores: pueden recibirlas como parámetros o retornarlas. Ejemplos: map, filter, fold. Son fundamentales en programación funcional.",
+    "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 66,
+    "text": "¿Qué es 'reified' en Kotlin y para qué se usa?",
+    "options": ["Un tipo de clase abstracta", "Permite acceder al tipo genérico en tiempo de ejecución dentro de funciones inline", "Una palabra clave para hacer variables inmutables", "Un modificador para funciones privadas"],
+    "correctAnswer": "Permite acceder al tipo genérico en tiempo de ejecución dentro de funciones inline",
+    "explanation": "reified solo funciona con funciones inline y permite acceder a la información del tipo genérico en runtime. Ejemplo: inline fun <reified T> isInstance(value: Any) = value is T",
+    "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 67,
+    "text": "¿Qué Dispatcher se debe usar para operaciones de red o lectura de archivos en corrutinas?",
+    "options": ["Dispatchers.Main", "Dispatchers.IO", "Dispatchers.Default", "Dispatchers.Unconfined"],
+    "correctAnswer": "Dispatchers.IO",
+    "explanation": "Dispatchers.IO está optimizado para operaciones de entrada/salida (red, archivos, base de datos). Dispatchers.Default es para operaciones CPU-intensivas. Dispatchers.Main es para actualizar UI.",
+    "category": "Conceptos Avanzados"
   }
 ]

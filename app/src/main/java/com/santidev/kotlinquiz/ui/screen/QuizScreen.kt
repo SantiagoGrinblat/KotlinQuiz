@@ -18,9 +18,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.santidev.kotlinquiz.data.QuestionRepository
-import com.santidev.kotlinquiz.utils.DetailedMenu
-import com.santidev.kotlinquiz.utils.QuestionCard
-import com.santidev.kotlinquiz.utils.components.ButtonUsers
+import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.DetailedMenu
+import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.QuestionCard
+import com.santidev.kotlinquiz.utils.components.ButtonsApp.ButtonUsers
 
 @Composable
 fun QuizScreen(navigateToUser: () -> Unit) {

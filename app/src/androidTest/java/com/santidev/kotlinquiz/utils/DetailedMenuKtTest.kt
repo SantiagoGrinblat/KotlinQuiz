@@ -5,6 +5,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.DetailedMenu
 import org.junit.Rule
 import org.junit.Test
 
@@ -52,7 +53,7 @@ class DetailedMenuKtTest {
     composeTestRule.setContent {
       DetailedMenu(
         selectedCategory = "Jetpack compose",
-        onCategorySelected = {capturedCategory = it},
+        onCategorySelected = { capturedCategory = it },
         content = {}
       )
     }
