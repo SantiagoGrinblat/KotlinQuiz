@@ -43,6 +43,8 @@ androidx-material-icons-extended = { module = "androidx.compose.material:materia
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 #firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-auth = { module = "com.google.firebase:firebase-auth" }
+google-auth = { module = "com.google.android.gms:play-services-auth", version = "google" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

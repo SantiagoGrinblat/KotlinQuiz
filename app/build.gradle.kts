@@ -69,7 +69,11 @@ dependencies {
   
   //Firebase
   implementation(platform(libs.firebase.bom))
+  implementation(libs.firebase.auth)
 //  implementation(libs.firebase.crashlytics)
+  
+  //Google
+  implementation(libs.google.auth)
   
   implementation(libs.androidx.core.ktx)
   implementation(libs.androidx.lifecycle.runtime.ktx)
