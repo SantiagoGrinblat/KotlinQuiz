@@ -20,7 +20,6 @@ import androidx.compose.ui.unit.dp
 import com.santidev.kotlinquiz.data.QuestionRepository
 import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.DetailedMenu
 import com.santidev.kotlinquiz.utils.components.ComponentsQuiz.QuestionCard
-import com.santidev.kotlinquiz.utils.components.ButtonsApp.ButtonUsers
 
 @Composable
 fun QuizScreen(navigateToUser: () -> Unit) {
@@ -96,8 +95,5 @@ fun QuizScreen(navigateToUser: () -> Unit) {
         )
       }
     }
-    ButtonUsers(
-      onClick = { navigateToUser() }
-    )
   }
 }

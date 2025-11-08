@@ -5,7 +5,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.santidev.kotlinquiz.ui.screen.QuizScreen
-import com.santidev.kotlinquiz.ui.screen.UserScreen
 
 @Composable
 fun NavigationWrapper() {
@@ -14,11 +13,8 @@ fun NavigationWrapper() {
   NavHost(navController = navController, startDestination = Home) {
     composable<Home> {
       QuizScreen(
-        navigateToUser = { navController.navigate(User) }
+        navigateToUser = { navController.navigate(Home) }
       )
-    }
-    composable<User> {
-      UserScreen(onNavigateBack = { navController.popBackStack() })
     }
   }
 }
