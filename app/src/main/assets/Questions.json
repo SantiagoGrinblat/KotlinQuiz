@@ -533,5 +533,29 @@
     "correctAnswer": "Dispatchers.IO",
     "explanation": "Dispatchers.IO está optimizado para operaciones de entrada/salida (red, archivos, base de datos). Dispatchers.Default es para operaciones CPU-intensivas. Dispatchers.Main es para actualizar UI.",
     "category": "Conceptos Avanzados"
+  },
+  {
+    "id": 68,
+    "text": "¿Cual es el rango correcto para iterar del 1 al 10 en Kotlin?",
+    "options": ["1..0", "1...10", "1 to 10", "range(1 ,  10)"],
+    "correctAnswer": "1..0",
+    "explanation": "El operador '..' crea un rango inclusivo. 1..10 incluye del 1 al 10. Para excluir el último: 1 until 10 (del 1 al 9). También existe downTo para rangos descendentes.",
+    "category": "Fundamentos Kotlin"
+  },
+  {
+    "id": 69,
+    "text": "¿Qué hace el operador 'in' en Kotlin?",
+    "options": ["Importa librerías", "Verifica si un elemento está en una colección o rango", "Declara variables internas", "Convierte tipos"],
+    "correctAnswer": "Verifica si un elemento está en una colección o rango",
+    "explanation": "El operador 'in' verifica pertenencia. Ejemplos: if (5 in 1..10), if ('a' in texto), if (item in lista). Su opuesto es '!in'.",
+    "category": "Fundamentos Kotlin"
+  },
+  {
+    "id": 70,
+    "text": "¿Qué hace la función 'let' en Kotlin?",
+    "options": ["Declara una variable local", "Ejecuta un bloque de código con el objeto como parámetro 'it' y retorna el resultado", "Crea una copia del objeto", "Convierte el objeto a String"],
+    "correctAnswer": "Ejecuta un bloque de código con el objeto como parámetro 'it' y retorna el resultado",
+    "explanation": "let es una función de scope. Se usa frecuentemente con el operador ?. para ejecutar código solo si el valor no es null. Ejemplo: nombre?.let { println(it.uppercase()) }",
+    "category": "Fundamentos Kotlin"
   }
 ]

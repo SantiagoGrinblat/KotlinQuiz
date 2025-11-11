@@ -212,7 +212,39 @@ fun QuestionCard(
             )
         ) {
           Text(
-            text = "Siguiente",
+            text = "Siguiente Pregunta",
+            style = MaterialTheme.typography.titleLarge,
+            color = Color.White,
+          )
+        }
+        Spacer(modifier = Modifier.height(12.dp))
+        Button(
+          onClick = { onNextQuestion() },
+          colors = ButtonDefaults.buttonColors(
+            containerColor = Color.Transparent,
+          ),
+          modifier = Modifier
+            .background(
+              brush = Brush.linearGradient(
+                colors = listOf(
+                  Color(0xFF2A1A3E),
+                  Color(0xFF1A1122)
+                ),
+                start = Offset(0f, 0f),
+                end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
+              ),
+              shape = RoundedCornerShape(16.dp)
+            )
+            .border(
+              width = 2.dp,
+              brush = Brush.horizontalGradient(
+                colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
+              ),
+              shape = RoundedCornerShape(16.dp)
+            )
+        ) {
+          Text(
+            text = "Mostrar ejemplo en codigo",
             style = MaterialTheme.typography.titleLarge,
             color = Color.White,
           )
