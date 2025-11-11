@@ -33,7 +33,7 @@ fun FilteredList(
     GridItemWithDrawable("Preguntas avanzadas", R.drawable.advancelogob, QuestionCategory.ADVANCED),
     GridItemWithDrawable("poo", R.drawable.poologob, QuestionCategory.POO),
     GridItemWithDrawable("Testing", R.drawable.logotestingb, QuestionCategory.TEST),
-    GridItemWithDrawable("Android", R.drawable.arquitecturab, QuestionCategory.ARCHITECTURE)
+    GridItemWithDrawable("Arquitectura", R.drawable.arquitecturab, QuestionCategory.ARCHITECTURE)
   )
   
   LazyVerticalGrid(

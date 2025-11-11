@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +35,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.santidev.kotlinquiz.data.Question
+import com.santidev.kotlinquiz.utils.components.ButtonsApp.GradientButton
 
 @Composable
 fun QuestionCard(
@@ -186,69 +185,18 @@ fun QuestionCard(
         
         Spacer(modifier = Modifier.height(12.dp))
         
-        Button(
-          onClick = { onNextQuestion() },
-          colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-          ),
-          modifier = Modifier
-            .background(
-              brush = Brush.linearGradient(
-                colors = listOf(
-                  Color(0xFF2A1A3E),
-                  Color(0xFF1A1122)
-                ),
-                start = Offset(0f, 0f),
-                end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
-              ),
-              shape = RoundedCornerShape(16.dp)
-            )
-            .border(
-              width = 2.dp,
-              brush = Brush.horizontalGradient(
-                colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
-              ),
-              shape = RoundedCornerShape(16.dp)
-            )
-        ) {
-          Text(
-            text = "Siguiente Pregunta",
-            style = MaterialTheme.typography.titleLarge,
-            color = Color.White,
-          )
-        }
+        GradientButton(
+          text = "Siguiente Pregunta",
+          onClick = { onNextQuestion() }
+        )
+        
         Spacer(modifier = Modifier.height(12.dp))
-        Button(
-          onClick = { onNextQuestion() },
-          colors = ButtonDefaults.buttonColors(
-            containerColor = Color.Transparent,
-          ),
-          modifier = Modifier
-            .background(
-              brush = Brush.linearGradient(
-                colors = listOf(
-                  Color(0xFF2A1A3E),
-                  Color(0xFF1A1122)
-                ),
-                start = Offset(0f, 0f),
-                end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
-              ),
-              shape = RoundedCornerShape(16.dp)
-            )
-            .border(
-              width = 2.dp,
-              brush = Brush.horizontalGradient(
-                colors = listOf(Color(0xFF8A2BE2), Color(0xFFFF7F50))
-              ),
-              shape = RoundedCornerShape(16.dp)
-            )
-        ) {
-          Text(
-            text = "Mostrar ejemplo en codigo",
-            style = MaterialTheme.typography.titleLarge,
-            color = Color.White,
-          )
-        }
+
+//        GradientButton(
+//          text = "Mostrar ejemplo en codigo",
+//          onClick = {}
+//        )
+        
       }
     }
   }
